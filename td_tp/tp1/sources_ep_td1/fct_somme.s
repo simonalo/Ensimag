@@ -34,8 +34,27 @@ uint8_t somme8(void)
     .text
     .globl somme
 somme:
-/*  Contexte : à préciser */
+/* Contexte: on propose de mettre les variables i et res, respectivement dans les
+ * registres t0 (soit x5) et t1 (soit x6).
+    On stocke de plus la oconstante 10 dans t2 (soitt x7) */
 
+    /*uint32_t i = 1;*/
+    lui t0, 1
+    /*uint32_t res = 0;*/
+    lui t1 0
+    /*uint32_t cst = 10;*/
+    lui t2 10
+
+    /*for (i = 1; i <= 10; i++) {*/
+for_somme:
+    beq t0, t2, fin
+    /* res = res + i; */
+    add t1, t1, t0
+    /* } */
+    j for_somme
+    /*return res;*/
+fin_somme:
+    mv a0, t0
 
     .globl sommeMem
 sommeMem:
