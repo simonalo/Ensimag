@@ -62,7 +62,7 @@ begin
 
         cmd.RF_we             <= '0';
         cmd.RF_SIZE_sel       <= UNDEFINED;
-        cmd.RF_SIGN_enable    <= 'U';
+        cmd.RF_SIGN_enable    <= '0';
         cmd.DATA_sel          <= UNDEFINED;
 
         cmd.PC_we             <= '0';
@@ -76,7 +76,7 @@ begin
         cmd.AD_we             <= '0';
         cmd.AD_Y_sel          <= UNDEFINED;
 
-        cmd.IR_we             <= 'U';
+        cmd.IR_we             <= '0';
 
         cmd.ADDR_sel          <= UNDEFINED;
         cmd.mem_we            <= '0';
@@ -88,8 +88,8 @@ begin
         cmd.cs.CSR_sel           <= UNDEFINED;
         cmd.cs.MEPC_sel          <= UNDEFINED;
 
-        cmd.cs.MSTATUS_mie_set   <= 'U';
-        cmd.cs.MSTATUS_mie_reset <= 'U';
+        cmd.cs.MSTATUS_mie_set   <= '0';
+        cmd.cs.MSTATUS_mie_reset <= '0';
 
         cmd.cs.CSR_WRITE_mode    <= UNDEFINED;
 
