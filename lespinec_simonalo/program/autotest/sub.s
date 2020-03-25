@@ -9,11 +9,11 @@
 
     #Test de soustraction d'une valeur nulle  et d'une valeure maximale dans x31
     lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, -1 #Chargement d'une valeur maximale dans x1
+	lui x1, 0xfffff #Chargement d'une valeur maximale dans x1
     sub x31, x1, x31
 
     #Test de soustraction de deux valeur quelconque dans x31
-    #lui x31, 012345 #Chargement d'une valeur nulle dans x31
+    #lui x31, 0x12345 #Chargement d'une valeur nulle dans x31
 	#lui x1, 0x67890 #Chargement d'une valeur quelconque dans x1
     #sub x31, x1, x31
 
@@ -22,5 +22,5 @@
 	# 00000000 
 	# 00000000 
 	# 00000000 
-	# -1
+	# FFFFF000
 	# pout_end
