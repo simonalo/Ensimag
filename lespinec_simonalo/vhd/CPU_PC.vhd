@@ -145,10 +145,12 @@ begin
                         state_d <= S_ADDI;
                     elsif status.IR(14 downto 12) = "001" then
                         state_d <= S_SLLI;
-                    elsif status.IR(14 downto 12) = "101" then
-                        state_d <= S_SRLI;
-                    else
-                        state_d <= S_SRAI;
+                    else -- status.IR(14 downto 12) = "101"
+                        if status.IR(31 downto 25) = "0100000" then
+                            state_d <= S_SRAI;
+                        else
+                            state_d <= S_SRAI;
+                        end if;
                     end if;
                 elsif status.IR(6 downto 0) = "0110011" then
                     -- Pc <- PC + 4
