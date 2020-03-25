@@ -142,10 +142,6 @@ begin
                     cmd.PC_we <= '1';
                     state_d <= S_ADD;
                 elsif status.IR(6 downto 0) = "0010111" then
-                    -- Pc <- PC + 4
-                    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
-                    cmd.PC_sel <= PC_from_pc;
-                    cmd.PC_we <= '1';
                     state_d <= S_AUIPC;
                 else
                     state_d <= S_Error;
@@ -202,12 +198,13 @@ begin
                 cmd.PC_Y_sel <= PC_Y_immU;
                 cmd.RF_we <= '1';
                 cmd.DATA_sel <= DATA_from_pc;
-                -- lecture mem[PC]
-                cmd.ADDR_sel <= ADDR_from_pc;
-                cmd.mem_ce <= '1';
-                cmd.mem_we <= '0';
+                -- Pc <- PC + 4
+                cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+                cmd.PC_sel <= PC_from_pc;
+                cmd.PC_we <= '1';
+                state_d <= S_ADD;
                 -- next state
-                state_d <= S_Fetch;
+                state_d <= S_Pre_Fetch;
 
                 
 
