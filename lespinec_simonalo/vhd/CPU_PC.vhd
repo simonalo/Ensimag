@@ -167,7 +167,7 @@ begin
                         state_d <= S_SRA;
                     -- Cas du auipc
                     else
-                        stat_d <= S_SRL;
+                        state_d <= S_SRL;
                     end if;
                 elsif status.IR(6 downto 0) = "0010111" then
                     state_d <= S_AUIPC;
