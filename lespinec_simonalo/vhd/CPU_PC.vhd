@@ -148,7 +148,7 @@ begin
                     elsif status.IR(14 downto 12) = "101" then
                         state_d <= S_SRLI;
                     else
-                        stat_d <= S_SRAI;
+                        state_d <= S_SRAI;
                 elsif status.IR(6 downto 0) = "0110011" then
                     -- Pc <- PC + 4
                     cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
