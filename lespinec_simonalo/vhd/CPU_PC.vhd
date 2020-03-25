@@ -149,7 +149,7 @@ begin
                         if status.IR(31 downto 25) = "0100000" then
                             state_d <= S_SRAI;
                         else
-                            state_d <= S_SRAI;
+                            state_d <= S_SRLI;
                         end if;
                     end if;
                 elsif status.IR(6 downto 0) = "0110011" then
@@ -164,12 +164,14 @@ begin
                         else
                             state_d <= S_ADD;
                         end if;
-                    -- Cas du sra
-                    elsif status.IR(14 downto 12) = "101" then
-                        state_d <= S_SRA;
-                    -- Cas du auipc
-                    else
-                        state_d <= S_SRL;
+                    -- Cas du sra et du srl
+                    else -- status.IR(14 downto 12) = "101"
+                        if status.IR(31 downto 25) = "0100000" then
+                            state_d <= S_SRA;
+                        -- Cas du srl
+                        else
+                            state_d <= S_SRL;
+                        end if;
                     end if;
                 elsif status.IR(6 downto 0) = "0010111" then
                     state_d <= S_AUIPC;
