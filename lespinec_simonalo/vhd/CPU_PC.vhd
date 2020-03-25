@@ -199,7 +199,7 @@ begin
             when S_AUIPC =>
                 -- rd <- (IR_{31...12} || 0^{12}) + pc
                 cmp.PC_X_sel <= PC_X_pc;
-                PC_Y_sel = PC_Y_immU;
+                PC_Y_sel <= PC_Y_immU;
                 cmd.RF_we <= '1';
                 cmd.DATA_sel <= DATA_from_pc;
                 -- lecture mem[PC]
