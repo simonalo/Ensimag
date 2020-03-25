@@ -158,9 +158,9 @@ begin
                     -- Cas du add et du sub
                     if status.IR(14 downto 12) = "000" then
                         if status.IR(31 downto 25) = "0100000"then
-                            state_d <= S_ADD;
-                        else
                             state_d <= S_SUB;
+                        else
+                            state_d <= S_ADD;
                         end if;
                     -- Cas du sra
                     elsif status.IR(14 downto 12) = "101" then
