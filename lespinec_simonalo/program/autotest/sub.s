@@ -15,6 +15,7 @@
     #Test de soustraction de deux valeur quelconque dans x31 pour avoir un résultat négatif
     lui x31, 0x00003 #Chargement d'une valeur nulle dans x31
 	lui x1, 0x00001 #Chargement d'une valeur quelconque dans x1
+    sub x31, x1, x31
 
 	# max_cycle 500
 	# pout_start
@@ -23,4 +24,5 @@
 	# 00000000 
 	# FFFFF000
 	# 00003000
+	# 90001000
 	# pout_end
