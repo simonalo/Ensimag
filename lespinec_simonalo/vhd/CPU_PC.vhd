@@ -29,7 +29,9 @@ architecture RTL of CPU_PC is
         S_Fetch,
         S_Decode,
         S_LUI,
-        S_ADDI
+        S_ADDI,
+        S_ADD,
+        S_AUIPC
     );
 
     signal state_d, state_q : State_type;
@@ -133,6 +135,18 @@ begin
                     cmd.PC_sel <= PC_from_pc;
                     cmd.PC_we <= '1';
                     state_d <= S_ADDI;
+                elsif status.IR(6 downto 0) = "0110011" then
+                    -- Pc <- PC + 4
+                    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+                    cmd.PC_sel <= PC_from_pc;
+                    cmd.PC_we <= '1';
+                    state_d <= S_ADD;
+                elsif status.IR(6 downto 0) = "0010111" then
+                    -- Pc <- PC + 4
+                    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+                    cmd.PC_sel <= PC_from_pc;
+                    cmd.PC_we <= '1';
+                    state_d <= S_AUIPC;
                 else
                     state_d <= S_Error;
                 end if;
@@ -153,6 +167,7 @@ begin
                 -- next state
                 state_d <= S_FETCH;
 ---------- Instructions arithmétiques et logiques ----------
+            -- Addition avec immédiat
             when S_ADDI =>
                 -- rd <- rs1 + immI
                 cmd.ALU_op <= ALU_plus;
@@ -165,6 +180,36 @@ begin
                 cmd.mem_we <= '0';
                 -- next state
                 state_d <= S_Fetch;
+            
+            -- Addition registre registre signé
+            when S_ADD =>
+                -- rd <- rs1 + rs2
+                cmd.ALU_op <= ALU_plus;
+                cmd.ALU_Y_sel <=ALU_Y_rf_rs2;
+                cmd.RF_we <= '1';
+                cmd.DATA_sel <= DATA_from_alu;
+                -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+                -- next state
+                state_d <= S_Fetch;
+
+        -- Addition d'un immédiat aux bits de poids fort de pc
+            when S_AUIPC =>
+                -- rd <- (IR_{31...12} || 0^{12}) + pc
+                cmp.PC_X_sel <= PC_X_pc;
+                PC_Y_sel = PC_Y_immU;
+                cmd.RF_we <= '1';
+                cmd.DATA_sel <= DATA_from_pc;
+                -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+                -- next state
+                state_d <= S_Fetch;
+
+                
 
 ---------- Instructions de saut ----------
 
