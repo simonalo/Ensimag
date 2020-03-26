@@ -17,6 +17,7 @@ uint32_t age(uint32_t annee_naissance)
 */
 
 age:
+    li t0, -2020
     /* age = 2020 - annee_naissance; */
-    addi a0, a0, -2020
+    add a0, a0, t0
     ret
