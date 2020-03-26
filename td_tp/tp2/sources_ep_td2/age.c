@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <inttypes.h>
 
-uint32_t age(uint32_t);
+extern uint32_t age(uint32_t);
 
 int main(void)
 {
