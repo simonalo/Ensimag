@@ -267,7 +267,7 @@ begin
                 state_d <= S_Fetch;
 
             when S_SRL =>
-                ---decalage a gauche
+                ---decalage a droite
                 cmd.SHIFTER_op <= SHIFT_rl;
                 cmd.SHIFTER_Y_sel <= SHIFTER_Y_rs2;
                 cmd.DATA_sel <= DATA_from_shifter;
