@@ -164,6 +164,9 @@ begin
                         else
                             state_d <= S_ADD;
                         end if;
+                    -- Cas du sll
+                    elsif status.IR(14 downto 12) = "001" then
+                            state_d <= S_SLL;
                     -- Cas du sra et du srl
                     else -- status.IR(14 downto 12) = "101"
                         if status.IR(31 downto 25) = "0100000" then
