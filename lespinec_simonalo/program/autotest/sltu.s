@@ -3,15 +3,15 @@
 	.text
 
     
-    lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, 0 #Chargement d'une valeur nulle dans x1
-	lui x2, 0 #Chargement d'une valeur nulle dans x2
+    li x31, 0 #Chargement d'une valeur nulle dans x31
+	li x1, 0 #Chargement d'une valeur nulle dans x1
+	li x2, 0 #Chargement d'une valeur nulle dans x2
     sltu x31,x1, x2 
 
 
-    lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, 0 #Chargement d'une valeur nulle dans x1
-	lui x2, 1 #Chargement de 1 dans x2
+    li x31, 0 #Chargement d'une valeur nulle dans x31
+	li x1, 0 #Chargement d'une valeur nulle dans x1
+	li x2, 1 #Chargement de 1 dans x2
     sltu x31,x1, x2 
 
     #Test de deux valeurs extremes (dépacement de 32 bits)

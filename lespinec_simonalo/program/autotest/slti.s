@@ -3,13 +3,13 @@
 	.text
 
     
-    lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, 0 #Chargement d'une valeur nulle dans x1
+    li x31, 0 #Chargement d'une valeur nulle dans x31
+	li x1, 0 #Chargement d'une valeur nulle dans x1
     slti x31, x1, 0x000
 
 
-    lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, 0 #Chargement d'une valeur nulle dans x1
+    li x31, 0 #Chargement d'une valeur nulle dans x31
+	li x1, 0 #Chargement d'une valeur nulle dans x1
     slti x31,x1, 0xF00
 
 	# max_cycle 500
