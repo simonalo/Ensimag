@@ -42,9 +42,9 @@ begin
     end if;
 
     if result(32) = '1' then
-        s <= 1;
+        s <= '1';
     else
-        s <= 0;
+        s <= '0';
     end if;
 
     -- On calcule les autres signaux tmeporaires pour avoir la sortie
