@@ -47,8 +47,8 @@ architecture RTL of CPU_PC is
 		S_XORI,
 		S_SLT,
 		S_SLTI,
-		SLTU,
-		SLTIU
+		S_SLTU,
+		S_SLTIU
 	);
 
 	signal state_d, state_q : State_type;
