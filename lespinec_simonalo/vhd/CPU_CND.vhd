@@ -28,7 +28,7 @@ begin
 
     -- On calcule la différence des deux vecteurs sur 33 bits
 
-    result <= (rs1(32) & rs1) - (alu_y(32) & alu_y) when (a = '1') else result := ('0' & rs1) - ('0' & alu_y);
+    result <= (rs1(32) & rs1) - (alu_y(32) & alu_y) when (a = '1') else ('0' & rs1) - ('0' & alu_y);
 
     -- On fait le calcule x - y et on atttribut les bonnes valeurs à z et s
     z <= '1' when (result = zeros) else '0';
