@@ -46,7 +46,9 @@ architecture RTL of CPU_PC is
 		S_ORI,
 		S_XORI,
 		S_SLT,
-		S_SLTI
+		S_SLTI,
+		SLTU,
+		SLTIU
 	);
 
 	signal state_d, state_q : State_type;
@@ -161,6 +163,8 @@ begin
 						state_d <= S_XORI;
 					elsif status.IR(14 downto 12) = "010" then
 						state_d <= S_SLTI;
+					elsif status.IR(14 downto 12) = "011" then
+						state_d <= S_SLTIU;
 					else -- status.IR(14 downto 12) = "101"
 						if status.IR(31 downto 25) = "0100000" then
 							state_d <= S_SRAI;
@@ -199,6 +203,8 @@ begin
 							state_d <= S_XOR;
 					elsif status.IR(14 downto 12) = "010" then
 						state_d <= S_SLT;
+					elsif status.IR(14 downto 12) = "011" then
+						state_d <= S_SLTU;
 					end if;
 				elsif status.IR(6 downto 0) = "0010111" then
 					state_d <= S_AUIPC;
@@ -429,6 +435,36 @@ begin
 			
 			when S_SLT =>
 				cmd.ALU_Y_SEL <= ALU_Y_rf_rs2;
+				cmd.DATA_sel <= DATA_from_slt;
+				cmd.RF_we <= '1';
+				-- lecture mem[PC]
+				cmd.ADDR_sel <= ADDR_from_pc;
+				cmd.mem_ce <= '1';
+				cmd.mem_we <= '0';
+				-- next state
+				state_d <= S_Fetch;
+			when S_SLTI =>
+				cmd.ALU_Y_SEL <= ALU_Y_immI;
+				cmd.DATA_sel <= DATA_from_slt;
+				cmd.RF_we <= '1';
+				-- lecture mem[PC]
+				cmd.ADDR_sel <= ADDR_from_pc;
+				cmd.mem_ce <= '1';
+				cmd.mem_we <= '0';
+				-- next state
+				state_d <= S_Fetch;
+			when S_SLTU =>
+				cmd.ALU_Y_SEL <= ALU_Y_rf_rs2;
+				cmd.DATA_sel <= DATA_from_slt;
+				cmd.RF_we <= '1';
+				-- lecture mem[PC]
+				cmd.ADDR_sel <= ADDR_from_pc;
+				cmd.mem_ce <= '1';
+				cmd.mem_we <= '0';
+				-- next state
+				state_d <= S_Fetch;
+			when S_SLTIU =>
+				cmd.ALU_Y_SEL <= ALU_Y_immI;
 				cmd.DATA_sel <= DATA_from_slt;
 				cmd.RF_we <= '1';
 				-- lecture mem[PC]
