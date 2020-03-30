@@ -28,12 +28,6 @@ begin
 
     -- On calcule la différence des deux vecteurs sur 33 bits
 
-    if a = '1' then
-        result := (rs1(32) & rs1) - (alu_y(32) & alu_y);
-    else
-        result := ('0' & rs1) - ('0' & alu_y);
-    end if;
-
     -- On calcule les autres signaux tmeporaires pour avoir la sortie
     b <= IR(12) xor z;
     c <= IR(12) xor s;
