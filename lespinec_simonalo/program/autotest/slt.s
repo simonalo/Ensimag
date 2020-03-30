@@ -15,7 +15,7 @@
     slt x31,x1, x2 
 
 
-	# max_cycle 500
+	# max_cycle 5000
 	# pout_start
 	# 00000000 
 	# 00000000 
