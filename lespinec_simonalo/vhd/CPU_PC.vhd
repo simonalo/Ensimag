@@ -197,10 +197,9 @@ begin
 							state_d <= S_OR;
 					elsif status.IR(14 downto 12) = "100" then
 							state_d <= S_XOR;
-					else -- status.IR(14 downto 12) = "010" then
+					elsif -- status.IR(14 downto 12) = "010" then
 						state_d <= S_SLT;
 					end if;
-				end if;
 				elsif status.IR(6 downto 0) = "0010111" then
 					state_d <= S_AUIPC;
 				else
