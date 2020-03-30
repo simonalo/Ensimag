@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Mar 27 14:12:47 2020
+# Process ID: 10959
+# Current directory: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/.CEPcache/sim
+# Command line: xsim -nolog -mode tcl -source {xsim.dir/work.tb_autotest/xsim_script.tcl}
+# Log file: 
+# Journal file: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/.CEPcache/sim/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/work.tb_autotest/xsim_script.tcl
+source /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/config/autotest.xsim.tcl

@@ -14,7 +14,7 @@
 
     #Test d'addition de deux valeur quelconque dans x31
     lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, 0x12345 #Chargement d'une valeur nulle dans x1
+	lui x1, 0x12345 #Chargement d'une valeur quelconque dans x1
     addi x31, x1, 0x678
 
 	# max_cycle 500

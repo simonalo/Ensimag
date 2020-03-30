@@ -1,0 +1,17 @@
+0.6
+2019.1
+May 24 2019
+14:51:52
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU.vhd,1585302918,vhdl2008,,,,cpu,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd,1585302918,vhdl2008,,,,cpu_cnd,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CSR.vhd,1585302918,vhdl2008,,,,cpu_csr,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_PC.vhd,1585308285,vhdl2008,,,,cpu_pc,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_PO.vhd,1585302918,vhdl2008,,,,cpu_po,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/IP_CLINT.vhd,1585302918,vhdl2008,,,,ip_clint,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/IP_ITPush.vhd,1585302918,vhdl2008,,,,ip_itpush,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/IP_PLIC.vhd,1585302918,vhdl2008,,,,ip_plic,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/PKG.vhd,1585302918,vhdl2008,/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CSR.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_PC.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_PO.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/IP_CLINT.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/IP_ITPush.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/IP_PLIC.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/PROC_bus.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd,,,pkg,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/PROC_bus.vhd,1585302918,vhdl2008,,,,proc_bus,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd,1585302918,vhdl2008,,,,ram32,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd,1585302918,vhdl2008,,,,tb_autotest,,xpm,,,,,,
+/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/txt_util.vhd,1585302919,vhdl2008,/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd;/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd,,,txt_util,,xpm,,,,,,

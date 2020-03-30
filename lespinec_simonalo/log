@@ -1,0 +1,790 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/bigsoft/Xilinx/Vivado/2019.1/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /bigsoft/Xilinx/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab tb_autotest -initfile=/bigsoft/Xilinx/Vivado/2019.1/data/xsim/ip/xsim_ip.ini -L xpm -nolog -debug typical -generic_top mutant=0 
+Multi-threading is on. Using 2 slave threads.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling package work.pkg
+Compiling package work.txt_util
+Compiling architecture rtl of entity work.CPU_PC [cpu_pc_default]
+Compiling architecture rtl of entity work.CPU_CSR [\CPU_CSR(interrupt_vector="00000...]
+Compiling architecture rtl of entity work.CPU_CND [cpu_cnd_default]
+Compiling architecture rtl of entity work.CPU_PO [\CPU_PO(reset_vector="0000000000...]
+Compiling architecture rtl of entity work.CPU [\CPU(reset_vector="0000000000000...]
+Compiling architecture rtl of entity work.PROC_bus [\PROC_bus(n_slave=3,base=("00000...]
+Compiling architecture behavioral of entity work.RAM32 [\RAM32(memory_size=32768,file_na...]
+Compiling architecture rtl of entity work.IP_ITpush [ip_itpush_default]
+Compiling architecture rtl of entity work.IP_PLIC [ip_plic_default]
+Compiling architecture rtl of entity work.IP_CLINT [ip_clint_default]
+Compiling architecture behavior of entity work.tb_autotest
+Built simulation snapshot work.tb_autotest
+
+****** xsim v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/work.tb_autotest/xsim_script.tcl
+# xsim {work.tb_autotest} -wdb {trace.wdb} -autoloadwcfg -tclbatch {/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/config/autotest.xsim.tcl}
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/config/autotest.xsim.tcl
+## if {[info exists ::env(TESTS)]} {
+## 	set string_test $env(TESTS)
+## } else {
+## 	set string_test 
+## }
+## set tests [regexp -all -inline -- {\S+} $string_test]
+## puts $string_test
+ addi  add  andi  and  auipc  lui  ori  or  rebouclage  slli  sll  srai  sra  srli  srl  sub  xori  xor
+## puts $tests
+addi add andi and auipc lui ori or rebouclage slli sll srai sra srli srl sub xori xor
+## foreach test $tests {
+## 	put "Preparing test: ${test}"
+## 	file delete test_default.out test_default.irq test_default.setup test_default.mem
+## 	file link -symbolic test_default.out   ${test}/test_default.out
+## 	file link -symbolic test_default.irq   ${test}/test_default.irq
+## 	file link -symbolic test_default.setup ${test}/test_default.setup
+## 	file link -symbolic test_default.mem   ../mem/${test}.mem
+## 
+## 	put "Running test: ${test}"
+## 	restart
+## 	run -all
+## 	file copy -force test_default.res  ${test}
+## 	file copy -force test_default.test ${test}
+## }
+Preparing test: addi
+Running test: addi
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00008F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00008F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 123450B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 67808F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FFFFF000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 12345678
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x12345678  get : 0x12345678
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: add
+Running test: add
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00005137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00208FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 0001F0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 00208FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = 000120B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 00017137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 00208FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: PASSED 
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: andi
+Running test: andi
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 0000FF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 0000FF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 145610B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 1120FF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: PASSED 
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: and
+Running test: and
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 0020FFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 0020FFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = 135380B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 13922137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 0020FFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: PASSED 
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: auipc
+Running test: auipc
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000F97
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 00000F97
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00000F97
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = EF459F97
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00001000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00001000  get : 0x00001000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00001004
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00001004  get : 0x00001004
+Time: 100 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00001008
+Time: 100 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00001008  get : 0x00001008
+Time: 140 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x EF45A00C
+Time: 140 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xEF45A00C  get : 0xEF45A00C
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 180 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: lui
+Running test: lui
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = FFFFFFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 12345FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FFFFF000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 12345000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x12345000  get : 0x12345000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 120 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: ori
+Running test: ori
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 0000EF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 0000EF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 123450B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 1430EF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: PASSED 
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: or
+Running test: or
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 0020EFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 0020EFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = 133330B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 14455137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 0020EFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: PASSED 
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: rebouclage
+Running test: rebouclage
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = FFFFFFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 12345FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x FFFFF000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FFFFF000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
+Time: 140 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 140 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 140 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 140 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: slli
+Running test: slli
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00109F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 12308F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 002F9F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000123
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000123  get : 0x00000123
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 0000048C
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000048C  get : 0x0000048C
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 240 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: sll
+Running test: sll
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00108113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00209FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00208113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 12308F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 002F9FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000123
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000123  get : 0x00000123
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 0000048C
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000048C  get : 0x0000048C
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: srai
+Running test: srai
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 4010DF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 12308F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 402FDF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000123
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000123  get : 0x00000123
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000048
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000048  get : 0x00000048
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 240 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: sra
+Running test: sra
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00108113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 0020DFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00208113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 12308F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 002FDFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000123
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000123  get : 0x00000123
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000048
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000048  get : 0x00000048
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: srli
+Running test: srli
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 0010DF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 12308F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 002FDF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000123
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000123  get : 0x00000123
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000048
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000048  get : 0x00000048
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 240 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: srl
+Running test: srl
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00108113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 0020DFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00208113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 12308F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 002FDFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000123
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000123  get : 0x00000123
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000048
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000048  get : 0x00000048
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: sub
+Running test: sub
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 401F8FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 41F08FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00003FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 000010B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 41F08FB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FFFFF000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00003000
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00003000  get : 0x00003000
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FFFFE000
+Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFFFFE000  get : 0xFFFFE000
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: xori
+Running test: xori
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 0000CF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 4550CF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 111220B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 1230CF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: PASSED 
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: xor
+Running test: xor
+INFO: [Simtcl 6-17] Simulation restarted
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 000000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 0020CFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = FFFFF0B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 0020CFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = 011120B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 44438137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 0020CFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: PASSED 
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+## exit
+INFO: [Common 17-206] Exiting xsim at Fri Mar 27 14:15:57 2020...
