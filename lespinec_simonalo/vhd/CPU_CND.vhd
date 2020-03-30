@@ -30,7 +30,7 @@ begin
     rs1_33(31 downto 0) := rs1(31 downto 0);
     alu_y_33(31 downto 0) := alu_y(31 downto 0);
 
-    if a='1' then
+    if a = '1' then
         rs1_33(32) <= rs1(31);
         alu_y_33(32) <= alu_y(31);
     else
@@ -46,7 +46,7 @@ begin
         z <= '0';
     end if;
 
-    if result(32) = 1 then
+    if result(32) = '1' then
         s <= 1;
     else
         s <= 0;
