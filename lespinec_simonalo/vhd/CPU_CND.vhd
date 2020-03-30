@@ -18,7 +18,7 @@ end entity;
 
 architecture RTL of CPU_CND is
 signal and1, and2, and3, and4, a, b, c, z, s : std_logic;
-signal result : std_logic_vector(32 downto 0);
+signal result : unsigned(32 downto 0);
 constant zeros : std_logic_vector(32 downto 0) := (others => '0');
 begin 
     -- On vérifie si il y a extension de signe
