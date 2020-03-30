@@ -34,19 +34,6 @@ begin
         result := ('0' & rs1) - ('0' & alu_y);
     end if;
 
-    -- On fait le calcule x - y et on atttribut les bonnes valeurs à z et s
-    if result = zeros then
-        z <= '1';
-    else 
-        z <= '0';
-    end if;
-
-    if result(32) = '1' then
-        s <= '1';
-    else
-        s <= '0';
-    end if;
-
     -- On calcule les autres signaux tmeporaires pour avoir la sortie
     b <= IR(12) xor z;
     c <= IR(12) xor s;
