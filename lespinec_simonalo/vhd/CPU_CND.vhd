@@ -29,13 +29,12 @@ begin
     -- On calcule la différence des deux vecteurs sur 33 bits
 
     if a = '1' then
-        result := (rs1(32) & rs1) - (alu_y(32) & alu_y)
+        result := (rs1(32) & rs1) - (alu_y(32) & alu_y);
     else
-    result := ('0' & rs1) - ('0' & alu_y)
+        result := ('0' & rs1) - ('0' & alu_y);
     end if;
 
     -- On fait le calcule x - y et on atttribut les bonnes valeurs à z et s
-    result <= rs1_33 - alu_y_33;
     if result = zeros then
         z <= '1';
     else 
