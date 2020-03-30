@@ -18,7 +18,7 @@ end entity;
 
 architecture RTL of CPU_CND is
 signal and1, and2, and3, and4, a, b, c, z, s : std_logic;
-signal result: std_logic_vector(32 downto 0);
+signal result : std_logic_vector(32 downto 0);
 constant zeros : std_logic_vector(32 downto 0) := (others => '0');
 begin 
     -- On vérifie si il y a extension de signe
@@ -28,9 +28,20 @@ begin
 
     -- On calcule la différence des deux vecteurs sur 33 bits
 
-    
+    if (a = '1') then
+        result := (rs1(32) & rs1) - (alu_y(32) & alu_y);
+    else
+        result := ('0' & rs1) - ('0' & alu_y);
+    end if;
 
-    if result(32) = '1' then
+    -- On fait le calcule x - y et on atttribut les bonnes valeurs à z et s
+    if (result = zeros) then
+        z <= '1';
+    else 
+        z <= '0';
+    end if;
+
+    if (result(32) = '1') then
         s <= '1';
     else
         s <= '0';
