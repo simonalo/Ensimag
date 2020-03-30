@@ -38,7 +38,13 @@ architecture RTL of CPU_PC is
         S_SRAI,
         S_SLLI,
         S_SRLI,
-        S_SUB
+        S_SUB,
+        S_AND,
+        S_OR,
+        S_XOR,
+        S_ANDI,
+        S_ORI,
+        S_XORI
     );
 
     signal state_d, state_q : State_type;
@@ -145,6 +151,12 @@ begin
                         state_d <= S_ADDI;
                     elsif status.IR(14 downto 12) = "001" then
                         state_d <= S_SLLI;
+                    elsif status.IR(14 downto 12) = "111" then
+                        state_d <=S_ANDI;
+                    elsif status.IR(14 downto 12) = "110" then
+                        state_d <= S_ORI;
+                    elsif status.IR(14 downto 12) = "100" then
+                        state_d <= S_XORI;
                     else -- status.IR(14 downto 12) = "101"
                         if status.IR(31 downto 25) = "0100000" then
                             state_d <= S_SRAI;
@@ -168,14 +180,21 @@ begin
                     elsif status.IR(14 downto 12) = "001" then
                             state_d <= S_SLL;
                     -- Cas du sra et du srl
-                    else -- status.IR(14 downto 12) = "101"
+                    elsif status.IR(14 downto 12) = "101" then
                         if status.IR(31 downto 25) = "0100000" then
                             state_d <= S_SRA;
-                        -- Cas du srl
+                            -- Cas du srl
                         else
                             state_d <= S_SRL;
                         end if;
+                    elsif status.IR(14 downto 12) = "111" then
+                            state_d <= S_AND;
+                    elsif status.IR(14 downto 12) = "110" then
+                            state_d <= S_OR;
+                    elsif status.IR(14 downto 12) = "100" then
+                            state_d <= S_XOR;
                     end if;
+
                 elsif status.IR(6 downto 0) = "0010111" then
                     state_d <= S_AUIPC;
                 else
@@ -329,7 +348,80 @@ begin
                 cmd.mem_we <= '0';
                 -- next state
                 state_d <= S_Fetch;
-            
+
+            when S_AND =>
+                cmd.RF_we <= '1';
+                cmd.ALU_Y_sel <= ALU_Y_rf_rs2;
+                cmd.LOGICAL_op <= LOGICAL_and;
+                cmd.DATA_sel <= DATA_from_logical;
+             -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+             -- next state
+                state_d <= S_Fetch;
+
+            when S_OR =>
+                cmd.LOGICAL_op <= LOGICAL_or;
+                cmd.ALU_Y_sel <=ALU_Y_rf_rs2;
+                cmd.RF_we <= '1';
+                cmd.DATA_sel <= DATA_from_logical;
+                -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+                -- next state
+                state_d <= S_Fetch;
+
+            when S_XOR =>
+                cmd.LOGICAL_op <= LOGICAL_xor;
+                cmd.ALU_Y_sel <=ALU_Y_rf_rs2;
+                cmd.RF_we <= '1';
+                cmd.DATA_sel <= DATA_from_logical;
+                -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+                -- next state
+                state_d <= S_Fetch;
+
+            when S_ANDI =>
+                cmd.RF_we <= '1';
+                cmd.ALU_Y_sel <= ALU_Y_immI;
+                cmd.LOGICAL_op <= LOGICAL_and;
+                cmd.DATA_sel <= DATA_from_logical;
+             -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+             -- next state
+                state_d <= S_Fetch;
+
+
+            when S_ORI =>
+                cmd.LOGICAL_op <= LOGICAL_or;
+                cmd.ALU_Y_sel <=ALU_Y_immI;
+                cmd.RF_we <= '1';
+                cmd.DATA_sel <= DATA_from_logical;
+                -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+                -- next state
+                state_d <= S_Fetch;
+
+            when S_XORI =>
+                cmd.LOGICAL_op <= LOGICAL_xor;
+                cmd.ALU_Y_sel <=ALU_Y_immI;
+                cmd.RF_we <= '1';
+                cmd.DATA_sel <= DATA_from_logical;
+                -- lecture mem[PC]
+                cmd.ADDR_sel <= ADDR_from_pc;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '0';
+                -- next state
+                state_d <= S_Fetch;
+
 
 ---------- Instructions de saut ----------
 

@@ -10,6 +10,7 @@ SRA
 SRAI
 SLLI
 SRLI
+<<<<<<< HEAD
 SLL
 AND
 OR
@@ -17,3 +18,6 @@ XOR
 ANDI
 ORI
 XORI
+=======
+SLL
+>>>>>>> e967ee956f033df4aa59246c8148305c025b60cf
