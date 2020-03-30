@@ -28,13 +28,7 @@ begin
 
     -- On calcule la différence des deux vecteurs sur 33 bits
 
-
-    -- On fait le calcule x - y et on atttribut les bonnes valeurs à z et s
-    if result = zeros then
-        z <= '1';
-    else 
-        z <= '0';
-    end if;
+    
 
     if result(32) = '1' then
         s <= '1';
