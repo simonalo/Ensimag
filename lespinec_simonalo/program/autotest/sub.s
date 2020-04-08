@@ -33,7 +33,7 @@
 	# pout_start
 	# 00000000 
 	# 00000000 
-	# FFFFFFFF
+	# 7FFFFFFF
 	# 80000001
 	# 7530ECA9
 	# 8ACF1357
