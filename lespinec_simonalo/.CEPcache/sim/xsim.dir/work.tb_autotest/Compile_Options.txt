@@ -1,0 +1,1 @@
+"tb_autotest" -initfile=/bigsoft/Xilinx/Vivado/2019.1/data/xsim/ip/xsim_ip.ini -L "xpm" -nolog -debug "typical" -generic_top "mutant=0" 
