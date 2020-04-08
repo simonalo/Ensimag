@@ -7,12 +7,12 @@
 
 	# Comparaison de 0 et de 1
 	li x1, 1
-    slt x31, x1, x0
+    slt x31, x0, x1
 
-    # Comparaison de deux valeurs extremes (dépacement de 32 bits)
+    # Comparaison de deux valeurs extremes
 	li x1, -2147483648 #Chargement de la valeur négative minimale
 	li x2, 0x7FFFFFFF #Chargement de la valeur positive maximale
-    slt x31,x1, x2 
+    slt x31, x1, x2 
 
 	# max_cycle 500
 	# pout_start

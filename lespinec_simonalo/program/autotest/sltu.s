@@ -2,30 +2,21 @@
 
 	.text
 
-    
-    li x31, 0 #Chargement d'une valeur nulle dans x31
-	li x1, 0 #Chargement d'une valeur nulle dans x1
-	li x2, 0 #Chargement d'une valeur nulle dans x2
-    sltu x31,x1, x2 
+    # Comparaison de 0 et 0
+    sltu x31, x0, x0 
 
+	# Comparaison de 0 et 1
+	li x1, 1 #Chargement de 1 dans x2
+    sltu x31, x0, x1
 
-    li x31, 0 #Chargement d'une valeur nulle dans x31
-	li x1, 0 #Chargement d'une valeur nulle dans x1
-	li x2, 1 #Chargement de 1 dans x2
-    sltu x31,x1, x2 
-
-    #Test de deux valeurs extremes (dépacement de 32 bits)
-    li x31, 0 #Chargement d'une valeur nulle dans x31
-	li x1, -2147483648 #Chargement de la valeur négative minimale mais qui sera considérée comme positive car de type unsigned
-	li x2, 0x7FFFFFFF #Chargement de la valeur positive maximale (si c'était un signé mais du coup n'est pas le max sur les non signés)
+    # Comparaison de deux valeurs quelconques
+	li x1, 0x12345678 #Chargement de la valeur négative minimale mais qui sera considérée comme positive car de type unsigned
+	li x2, 0x23456789 #Chargement de la valeur positive maximale (si c'était un signé mais du coup n'est pas le max sur les non signés)
     sltu x31, x1, x2 
 
 	# max_cycle 500
 	# pout_start
-	# 00000000 
-	# 00000000 
 	# 00000000  
-	# 00000001
-	# 00000000  
-	# 00000000  
+	# 00000001  
+	# 00000001 
 	# pout_end
