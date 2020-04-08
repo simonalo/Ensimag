@@ -35,7 +35,7 @@
 	# max_cycle 500
 	# pout_start
 	# 00000000 
-	# FFFFFFFF 
+	# 7FFFFFFF 
 	# 12345678
 	# 11A2B3C4
 	# 00000000
