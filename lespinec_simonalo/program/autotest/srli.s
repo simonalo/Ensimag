@@ -1,25 +1,38 @@
-# TAG = srli
+# TAG = srl
 
 	.text
 
-    #Test de 1 décalage d'une valeur nulle dans x31
-    lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, 0 #Chargement d'une valeur nulle dans x1
+    #Test de un décalage d'une valeur nulle
+    srli x31, x0, 1
+
+	#Test de un décalage d'une valeur maximale
+    li x1, 0xfffffff 
     srli x31, x1, 1
 
-    #Test de 2 décalages d'une valeur quelconque dans x31
-    lui x31, 0 #Chargement d'une valeur nulle dans x31
-	lui x1, 0 #Chargement d'une valeur nulle dans x1
-    addi x31, x1, 0x123
-    srli x31, x31, 2
+    #Test de zéro décalages d'une valeur quelconque
+	li x1, 0x12345678
+    srli x31, x1, 0
+
+	#Test de un décalages d'une valeur quelconque
+	li x1, 0x23456789
+    srli x31, x1, 1
+
+	#Test de 8 décalages d'une valeur quelconque
+	li x2, 0x12345678
+    srli x31, x1, 8
+
+	#Test du maximum décalages d'une valeur quelconque
+	li x1, 0x12345678
+    srli x31, x1, 31
 
 
 
 	# max_cycle 500
 	# pout_start
 	# 00000000 
-	# 00000000 
-	# 00000000  
-	# 00000123
-	# 00000048
+	# 07FFFFFF 
+	# 12345678
+	# 11A2B3C4
+	# 00000000
+	# 00000000
 	# pout_end
