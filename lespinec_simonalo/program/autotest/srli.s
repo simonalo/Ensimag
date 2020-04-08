@@ -1,4 +1,4 @@
-# TAG = srl
+# TAG = srli
 
 	.text
 
