@@ -11,7 +11,7 @@
 
 	#Test de soustraction de deux valeur maximale dans x31
 	li x1, 0x7fffffff 
-	lii x2, 0x7fffffff  
+	li x2, 0x7fffffff  
     sub x31, x2, x1
 
     #Test de soustraction d'une valeur nulle et d'une valeur maximale (résultat positif)
