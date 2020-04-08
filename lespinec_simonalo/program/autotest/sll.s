@@ -21,7 +21,7 @@
     sll x31, x2, x1
 
 	#Test de 8 décalages d'une valeur quelconque
-    li x1, 0x01f
+    li x1, 0x008
 	li x2, 0x12345678
     sll x31, x2, x1
 
@@ -38,6 +38,6 @@
 	# FFFFFFFE
 	# 12345678
 	# 468ACF12
-	# 00000000
+	# 45678900
 	# 00000000
 	# pout_end
