@@ -13,7 +13,7 @@
     addi x31, x0, 0x7FF
 
 	#Test d'addition d'un registre nul et d'un immédiat de valeur minimale
-    addi x31, x0, 0x800
+    addi x31, x0, -0x800
 
 	#Test d'addition d'un registre  et d'un immédiat pour obtenir la valeur maximale
 	li x1, 0xffffff00 #Chargement d'une valeur maximale dans x1
