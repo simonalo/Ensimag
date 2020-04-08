@@ -7,7 +7,7 @@
     sra x31, x0, x1
 
 	#Test de un décalage d'une valeur maximale
-	li x1, 0x001
+	li x1, 0x002
     li x2, 0xfffffff 
     sra x31, x2, x1
 
@@ -34,7 +34,7 @@
 	# max_cycle 500
 	# pout_start
 	# 00000000 
-	# 7FFFFFFF 
+	# FFFFFFFFF 
 	# 12345678
 	# 11A2B3C4
 	# 00000000
