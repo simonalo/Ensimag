@@ -9,7 +9,7 @@
 	#Test de un décalage d'une valeur maximale
 	li x1, 1 
     li x2, 0xfffffff 
-    sra x31, x1, x2
+    sra x31, x2, x1
 
     #Test de zéro décalages d'une valeur quelconque
 	li x2, 0x12345678
