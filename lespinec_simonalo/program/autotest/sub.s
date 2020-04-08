@@ -29,6 +29,11 @@
 	li x2, 0x87654321
     sub x31, x2, x1
 
+	#Test de soustraction de deux valeurs quelconques (résultat négatif)
+	li x1, 0x12345678 
+	li x2, 0x87654321
+    sub x31, x1, x2
+
 	# max_cycle 500
 	# pout_start
 	# 00000000 
