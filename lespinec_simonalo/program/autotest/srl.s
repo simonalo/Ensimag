@@ -8,7 +8,7 @@
 
 	#Test de un décalage d'une valeur maximale
 	li x1, 0x001 
-    li x2, 0xfffffff 
+    li x2, 0xffffffff 
     srl x31, x2, x1
 
     #Test de zéro décalages d'une valeur quelconque
@@ -34,7 +34,7 @@
 	# max_cycle 500
 	# pout_start
 	# 00000000 
-	# 07FFFFFF 
+	# 7FFFFFFF 
 	# 12345678
 	# 11A2B3C4
 	# 00000000

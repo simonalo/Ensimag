@@ -8,7 +8,7 @@
 
 	#Test de un décalage d'une valeur maximale
 	li x1, 0x001 
-    li x2, 0xfffffff 
+    li x2, 0xffffffff 
     sll x31, x2, x1
 
     #Test de zéro décalages d'une valeur quelconque

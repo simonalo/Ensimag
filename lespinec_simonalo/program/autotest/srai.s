@@ -6,7 +6,7 @@
     srai x31, x0, 1
 
 	#Test de un décalage d'une valeur maximale
-    li x1, 0xfffffff 
+    li x1, 0xffffffff 
     srai x31, x1, 1
 
     #Test de zéro décalages d'une valeur quelconque

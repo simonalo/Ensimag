@@ -6,7 +6,7 @@
     srli x31, x0, 1
 
 	#Test de un décalage d'une valeur maximale
-    li x1, 0xfffffff 
+    li x1, 0xffffffff 
     srli x31, x1, 1
 
     #Test de zéro décalages d'une valeur quelconque
@@ -30,7 +30,7 @@
 	# max_cycle 500
 	# pout_start
 	# 00000000 
-	# 07FFFFFF 
+	# 7FFFFFFF 
 	# 12345678
 	# 11A2B3C4
 	# 00000000
