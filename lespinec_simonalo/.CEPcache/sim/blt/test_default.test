@@ -1,0 +1,6 @@
+pout expect : 0x0000B000  get : 0x0000B000
+pout expect : 0xF0000000  get : 0xF0000000
+pout expect : 0x00004000  get : 0x00004000
+pout expect : 0xFF000000  get : 0xFF000000
+pout expect : 0x00007000  get : 0x00007000
+pout expect : 0x00008000  get : 0x00008000

@@ -47,9 +47,9 @@ source /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/confi
 ## }
 ## set tests [regexp -all -inline -- {\S+} $string_test]
 ## puts $string_test
- addi  add  andi  and  auipc  lui  ori  or  rebouclage  slli  sll  srai  sra  srli  srl  sub  xori  xor
+ addi  add  andi  and  auipc  beq  bge  bgeu  blt  bltu  bne  lui  ori  or  rebouclage  slli  sll  slti  sltiu  slt  sltu  srai  sra  srli  srl  sub  xori  xor
 ## puts $tests
-addi add andi and auipc lui ori or rebouclage slli sll srai sra srli srl sub xori xor
+addi add andi and auipc beq bge bgeu blt bltu bne lui ori or rebouclage slli sll slti sltiu slt sltu srai sra srli srl sub xori xor
 ## foreach test $tests {
 ## 	put "Preparing test: ${test}"
 ## 	file delete test_default.out test_default.irq test_default.setup test_default.mem
@@ -67,6 +67,8 @@ addi add andi and auipc lui ori or rebouclage slli sll srai sra srli srl sub xor
 Preparing test: addi
 Running test: addi
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -89,12 +91,16 @@ Note: memory[1032] = 67808F93
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
@@ -103,6 +109,8 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x FFFFF000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
 Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
@@ -111,6 +119,8 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 12345678
 Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 290 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x12345678  get : 0x12345678
 Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: PASSED 
@@ -121,6 +131,8 @@ $finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: add
 Running test: add
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -149,6 +161,8 @@ Note: memory[1035] = 00208FB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1036] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: PASSED 
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Failure: Assertion violation
@@ -157,6 +171,8 @@ $finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP
 Preparing test: andi
 Running test: andi
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -179,6 +195,8 @@ Note: memory[1032] = 1120FF93
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: PASSED 
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Failure: Assertion violation
@@ -187,6 +205,8 @@ $finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP
 Preparing test: and
 Running test: and
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -215,6 +235,8 @@ Note: memory[1035] = 0020FFB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1036] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: PASSED 
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Failure: Assertion violation
@@ -223,6 +245,8 @@ $finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP
 Preparing test: auipc
 Running test: auipc
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000F97
@@ -235,6 +259,8 @@ Note: memory[1027] = EF459F97
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1028] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00001000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00001000  get : 0x00001000
@@ -256,9 +282,431 @@ Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/l
 Failure: Assertion violation
 Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 $finish called at time : 180 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: beq
+Running test: beq
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 0000BF37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 0000AFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 01FF0463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00001FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00002FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00002F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 01FF0463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 00004FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00005FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 0000A000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000A000  get : 0x0000A000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00001000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 130 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00001000  get : 0x00001000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00002000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00002000  get : 0x00002000
+Time: 190 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00005000
+Time: 190 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 240 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00005000  get : 0x00005000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 290 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: bge
+Running test: bge
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = FFFFFF37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 0000BFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 01FF5463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00001FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = F0000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00003F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 01FF5463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 00004FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = FF000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FF000F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 01FF5463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 00007FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = 00008FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1037] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 0000B000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000B000  get : 0x0000B000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00001000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 130 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00001000  get : 0x00001000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x F0000000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xF0000000  get : 0xF0000000
+Time: 190 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FF000000
+Time: 190 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 240 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0xFF000000  get : 0xFF000000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00008000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 340 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 360 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00008000  get : 0x00008000
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 390 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: bgeu
+Running test: bgeu
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = FFFFFF37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 0000BFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 01FF7463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00001FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = F0000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00003F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 01FF7463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 00004FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = FF000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FF000F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 01FF7463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 00007FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = 00008FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1037] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 0000B000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000B000  get : 0x0000B000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x F0000000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 130 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0xF0000000  get : 0xF0000000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00004000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 210 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00004000  get : 0x00004000
+Time: 260 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FF000000
+Time: 260 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFF000000  get : 0xFF000000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00008000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 340 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 360 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00008000  get : 0x00008000
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 390 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: blt
+Running test: blt
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = FFFFFF37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 0000BFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 01FF4463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00001FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = F0000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00003F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 01FF4463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 00004FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = FF000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FF000F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 01FF4463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 00007FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = 00008FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1037] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 0000B000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000B000  get : 0x0000B000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x F0000000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 130 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0xF0000000  get : 0xF0000000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00004000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 210 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00004000  get : 0x00004000
+Time: 260 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FF000000
+Time: 260 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0xFF000000  get : 0xFF000000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00007000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 340 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 360 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00007000  get : 0x00007000
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00008000
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00008000  get : 0x00008000
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 420 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: bltu
+Running test: bltu
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = FFFFFF37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 0000BFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 01FF6463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00001FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = F0000F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00003FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 01EFE463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 00004FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = FF000FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FF000F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 01FF6463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = 00007FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = 00008FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1037] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 0000B000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000B000  get : 0x0000B000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00001000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 130 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00001000  get : 0x00001000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00003000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00003000  get : 0x00003000
+Time: 220 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x FF000000
+Time: 220 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 240 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0xFF000000  get : 0xFF000000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00007000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 340 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 360 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00007000  get : 0x00007000
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00008000
+Time: 390 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00008000  get : 0x00008000
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 420 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: bne
+Running test: bne
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 0000BF37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 0000AFB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 01FF1463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00001FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00002FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00002F37
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 01FF1463
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 00004FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00005FB7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 0000A000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x0000A000  get : 0x0000A000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00002000
+Time: 90 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 130 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00002000  get : 0x00002000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00004000
+Time: 160 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 210 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 8  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00004000  get : 0x00004000
+Time: 260 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00005000
+Time: 260 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: pout expect : 0x00005000  get : 0x00005000
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 290 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 290 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
 Preparing test: lui
 Running test: lui
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -269,6 +717,8 @@ Note: memory[1026] = 12345FB7
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1027] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
@@ -289,6 +739,8 @@ $finish called at time : 120 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: ori
 Running test: ori
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -311,6 +763,8 @@ Note: memory[1032] = 1430EF93
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: PASSED 
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Failure: Assertion violation
@@ -319,6 +773,8 @@ $finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP
 Preparing test: or
 Running test: or
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -347,6 +803,8 @@ Note: memory[1035] = 0020EFB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1036] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: PASSED 
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Failure: Assertion violation
@@ -355,6 +813,8 @@ $finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP
 Preparing test: rebouclage
 Running test: rebouclage
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = FFFFFFB7
@@ -365,6 +825,8 @@ Note: memory[1026] = 12345FB7
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1027] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x FFFFF000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
@@ -381,6 +843,8 @@ $finish called at time : 140 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: slli
 Running test: slli
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -399,6 +863,8 @@ Note: memory[1030] = 002F9F93
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1031] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
@@ -413,6 +879,8 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000123
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000123  get : 0x00000123
 Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 0000048C
@@ -427,6 +895,8 @@ $finish called at time : 240 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: sll
 Running test: sll
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -449,12 +919,16 @@ Note: memory[1032] = 002F9FB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
@@ -463,6 +937,10 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000123
 Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000123  get : 0x00000123
 Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 0000048C
@@ -474,9 +952,299 @@ Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/l
 Failure: Assertion violation
 Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 $finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: slti
+Running test: slti
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 0000AF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 0010AF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 50 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 80 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 140 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000001
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 170 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000001  get : 0x00000001
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 210 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: sltiu
+Running test: sltiu
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 0000BF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 8000BF93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 50 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 80 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 140 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000001
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 170 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000001  get : 0x00000001
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 210 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: slt
+Running test: slt
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00000113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 0020AFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00100113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 0020AFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = 800000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 80000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = FFF10113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = 0020AFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1037] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 50 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 80 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 140 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 170 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000001
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000001  get : 0x00000001
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 290 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000001
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 380 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 410 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000001  get : 0x00000001
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 420 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
+Preparing test: sltu
+Running test: sltu
+INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: @ 00000400 = 1024
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1024] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1025] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1026] = 00000113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1027] = 0020BFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1028] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1029] = 00000093
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1030] = 00100113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1031] = 0020BFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1032] = 00000F93
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1033] = 800000B7
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1034] = 80000137
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1035] = FFF10113
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1036] = 0020BFB3
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Note: memory[1037] = FFFFFFFF
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: repeat x x 00000000
+Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 50 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 80 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 140 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 170 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000001
+Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000001  get : 0x00000001
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 290 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: repeat x x 00000000
+Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 380 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 410 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Note: pout expect : 0x00000000  get : 0x00000000
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Note: PASSED 
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Failure: Assertion violation
+Time: 420 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+$finish called at time : 420 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
 Preparing test: srai
 Running test: srai
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -495,6 +1263,8 @@ Note: memory[1030] = 402FDF93
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1031] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
@@ -509,6 +1279,8 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000123
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000123  get : 0x00000123
 Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000048
@@ -523,6 +1295,8 @@ $finish called at time : 240 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: sra
 Running test: sra
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -545,12 +1319,16 @@ Note: memory[1032] = 002FDFB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
@@ -559,6 +1337,10 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000123
 Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000123  get : 0x00000123
 Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000048
@@ -573,6 +1355,8 @@ $finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: srli
 Running test: srli
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -591,6 +1375,8 @@ Note: memory[1030] = 002FDF93
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1031] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
@@ -605,6 +1391,8 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000123
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000123  get : 0x00000123
 Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000048
@@ -619,6 +1407,8 @@ $finish called at time : 240 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: srl
 Running test: srl
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -641,12 +1431,16 @@ Note: memory[1032] = 002FDFB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
@@ -655,6 +1449,10 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000123
 Time: 180 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 230 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 260 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000123  get : 0x00000123
 Time: 270 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000048
@@ -669,6 +1467,8 @@ $finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: sub
 Running test: sub
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -691,12 +1491,16 @@ Note: memory[1032] = 41F08FB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: repeat x x 00000000
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
 Time: 60 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 110 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0x00000000  get : 0x00000000
 Time: 120 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00000000
@@ -705,6 +1509,8 @@ Note: pout expect : 0x00000000  get : 0x00000000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x FFFFF000
 Time: 150 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 200 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0xFFFFF000  get : 0xFFFFF000
 Time: 210 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x 00003000
@@ -713,6 +1519,8 @@ Note: pout expect : 0x00003000  get : 0x00003000
 Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: repeat x x FFFFE000
 Time: 240 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 290 ns  Iteration: 7  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: pout expect : 0xFFFFE000  get : 0xFFFFE000
 Time: 300 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Note: PASSED 
@@ -723,6 +1531,8 @@ $finish called at time : 300 ns : File "/user/1/.base/lespinec/home/Documents/CE
 Preparing test: xori
 Running test: xori
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -745,6 +1555,8 @@ Note: memory[1032] = 1230CF93
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1033] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: PASSED 
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Failure: Assertion violation
@@ -753,6 +1565,8 @@ $finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP
 Preparing test: xor
 Running test: xor
 INFO: [Simtcl 6-17] Simulation restarted
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 0  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: @ 00000400 = 1024
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1024] = 00000FB7
@@ -781,10 +1595,12 @@ Note: memory[1035] = 0020CFB3
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
 Note: memory[1036] = FFFFFFFF
 Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_RAM/line__145  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/RAM32_reload.vhd
+Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+Time: 0 ps  Iteration: 1  Process: /tb_autotest/C_PROC/PO/CND/line__47  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/CPU_CND.vhd
 Note: PASSED 
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 Failure: Assertion violation
 Time: 10 ns  Iteration: 1  Process: /tb_autotest/tb_pout  File: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd
 $finish called at time : 10 ns : File "/user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/vhd/bench/tb_autotest.vhd" Line 190
 ## exit
-INFO: [Common 17-206] Exiting xsim at Fri Mar 27 14:15:57 2020...
+INFO: [Common 17-206] Exiting xsim at Thu Apr  2 16:48:20 2020...

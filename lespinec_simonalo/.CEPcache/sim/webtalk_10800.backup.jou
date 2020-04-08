@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Mar 27 11:11:36 2020
+# Process ID: 10800
+# Current directory: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/.CEPcache/sim
+# Command line: wbtcv -mode batch -source /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/.CEPcache/sim/xsim.dir/work.tb_autotest/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/.CEPcache/sim/webtalk.log
+# Journal file: /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/.CEPcache/sim/webtalk.jou
+#-----------------------------------------------------------
+source /user/1/.base/lespinec/home/Documents/CEP/projet2/lespinec_simonalo/.CEPcache/sim/xsim.dir/work.tb_autotest/webtalk/xsim_webtalk.tcl -notrace
