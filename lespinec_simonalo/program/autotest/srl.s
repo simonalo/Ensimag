@@ -3,7 +3,7 @@
 	.text
 
     #Test de un décalage d'une valeur nulle
-    li x1, 0x001 
+    li x1, 0x00000001 
     srl x31, x0, x1
 
 	#Test de un décalage d'une valeur maximale
