@@ -2,30 +2,21 @@
 
 	.text
 
-    
-    li x31, 0 #Chargement d'une valeur nulle dans x31
-	li x1, 0 #Chargement d'une valeur nulle dans x1
-	li x2, 0 #Chargement d'une valeur nulle dans x2
-    slt x31,x1, x2 
+    # Comparaison de 0 et 0
+    slt x31, x0, x0
 
+	# Comparaison de 0 et de 1
+	li x1, 1
+    slt x31, x1, x0
 
-    li x31, 0 #Chargement d'une valeur nulle dans x31
-	li x1, 0 #Chargement d'une valeur nulle dans x1
-	li x2, 1 #Chargement de 1 dans x2
-    slt x31,x1, x2 
-
-    #Test de deux valeurs extremes (dépacement de 32 bits)
-    li x31, 0 #Chargement d'une valeur nulle dans x31
+    # Comparaison de deux valeurs extremes (dépacement de 32 bits)
 	li x1, -2147483648 #Chargement de la valeur négative minimale
 	li x2, 0x7FFFFFFF #Chargement de la valeur positive maximale
     slt x31,x1, x2 
 
 	# max_cycle 500
 	# pout_start
-	# 00000000 
-	# 00000000 
 	# 00000000  
-	# 00000001
-	# 00000000  
+	# 00000001 
 	# 00000001  
 	# pout_end
