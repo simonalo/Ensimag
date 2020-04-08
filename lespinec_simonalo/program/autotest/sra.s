@@ -7,7 +7,7 @@
     sra x31, x0, x1
 
 	#Test de un décalage d'une valeur maximale
-	li x1, 1 
+	li x1, 0x001
     li x2, 0xfffffff 
     sra x31, x2, x1
 

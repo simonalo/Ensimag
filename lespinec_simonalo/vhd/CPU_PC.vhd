@@ -246,10 +246,10 @@ begin
 					elsif status.IR(14 downto 12) = "001" then
 							state_d <= S_SLL;
 					elsif status.IR(14 downto 12) = "101" then
-						if status.IR(31 downto 25) = "0100000" then
-							state_d <= S_SRA;
-						else
+						if status.IR(31 downto 25) = "0000000" then
 							state_d <= S_SRL;
+						else
+							state_d <= S_SRA;
 						end if;
 					elsif status.IR(14 downto 12) = "111" then
 							state_d <= S_AND;
