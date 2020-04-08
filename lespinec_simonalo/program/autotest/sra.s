@@ -35,7 +35,11 @@
 	# max_cycle 500
 	# pout_start
 	# 00000000 
+<<<<<<< HEAD
 	# 7FFFFFFF 
+=======
+	# FFFFFFFF 
+>>>>>>> 25e27b680d77ad50847ce62b3312bcb533c97208
 	# 12345678
 	# 11A2B3C4
 	# 00000000
