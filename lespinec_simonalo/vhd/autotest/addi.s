@@ -3,10 +3,10 @@
 	.text
 
     #Test d'addition d'un registre nul et d'un immédiat nul
-    addi x31, x1, 0
+    addi x31, x0, 0
 
     #Test d'addition d'un registre de valeur maximale et d'un immédiat nul
-	lui x1, 0xfffff #Chargement d'une valeur maximale dans x1
+	li x1, 0xffffffff #Chargement d'une valeur maximale dans x1
     addi x31, x1, 0
 
     #Test d'addition d'un registre nul et d'un immédiat de valeur maximale
@@ -29,9 +29,10 @@
 
 	# max_cycle 500
 	# pout_start
-	# 00000000
+	# 00000000 
 	# FFFFFFFF
 	# 000007FF
 	# FFFFF800
-	# FFFFFFFF
+	# FFFFFFFF 
 	# 1234579B
+	# pout_end

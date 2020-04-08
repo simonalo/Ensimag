@@ -61,7 +61,12 @@ architecture RTL of CPU_PC is
 		S_LHU,
 		S_LH,
 		S_LBU,
-		S_LB		
+		S_LB,
+        S_WRITE_MEM,
+        S_LD_MEM,
+        S_SW,
+        S_SB,
+        S_SH
 	);
 
 	signal state_d, state_q : State_type;
@@ -200,7 +205,21 @@ begin
 					elsif status.IR(14 downto 12) = "101" then
 						state_d <= S_LHU;
 					end if;
-				
+			    ---Instructions d'écriture en mémoire---
+                elsif status.IR(6 downto 0) = "0100011" then
+                    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+                    cmd.PC_sel <= PC_from_pc;
+                    cmd.PC_we <= '1';
+                    ---choix état futur---
+                   -- if status.IR(14 downto 12)="010" then
+                    state_d <= S_SW;
+                   -- elsif status.IR(14 downto 12)="001" then
+                     --   state_d <= S_SH;
+                   -- else
+                     --   state_d <= S_SB;
+                   -- end if;
+
+
 				-- Instructions du type "registre immédiat"
 				elsif status.IR(6 downto 0) = "0010011" then
 					-- Pc <- PC + 4
@@ -246,10 +265,10 @@ begin
 					elsif status.IR(14 downto 12) = "001" then
 							state_d <= S_SLL;
 					elsif status.IR(14 downto 12) = "101" then
-						if status.IR(31 downto 25) = "0000000" then
-							state_d <= S_SRL;
-						else
+						if status.IR(31 downto 25) = "0100000" then
 							state_d <= S_SRA;
+						else
+							state_d <= S_SRL;
 						end if;
 					elsif status.IR(14 downto 12) = "111" then
 							state_d <= S_AND;
@@ -608,6 +627,31 @@ begin
 				cmd.mem_we <= '0';
 				-- next state
 				state_d <= S_Fetch;
+
+
+
+            when S_SW => --|S_SH|S_SB =>
+                cmd.RF_SIGN_enable <= '1';
+                cmd.RF_SIZE_sel <= RF_SIZE_word;
+                cmd.AD_Y_SEL <= AD_Y_immS;
+                cmd.AD_we <= '1';
+                state_d <= S_WRITE_MEM;
+                -- Ok
+
+            when S_WRITE_MEM =>
+                cmd.RF_SIGN_enable <= '1';
+               -- if status.IR(14 downto 12)="010" then
+                cmd.RF_SIZE_sel <= RF_SIZE_word;
+                --elsif status.IR(14 downto 12)="001" then
+                   -- cmd.RF_SIZE_sel <= RF_SIZE_half;
+               -- else --if "000"---
+                   -- cmd.RF_SIZE_sel <= RF_SIZE_byte;
+                --end if;
+                cmd.ADDR_sel <= ADDR_from_ad;
+                cmd.mem_ce <= '1';
+                cmd.mem_we <= '1';
+                state_d <= S_Pre_Fetch;
+
 
 ---------- Instructions de sauvegarde en mémoire ----------
 
