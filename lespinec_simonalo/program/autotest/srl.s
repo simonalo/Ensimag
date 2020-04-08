@@ -12,9 +12,8 @@
     srl x31, x2, x1
 
     #Test de zéro décalages d'une valeur quelconque
-    li x1, 0x001
 	li x2, 0x12345678
-    srl x31, x2, x1
+    srl x31, x2, x0
 
 	#Test de un décalages d'une valeur quelconque
     li x1, 0x001
