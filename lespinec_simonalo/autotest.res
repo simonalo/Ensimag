@@ -9,10 +9,15 @@ bgeu        PASSED
 blt         PASSED
 bltu        PASSED
 bne         PASSED
+jalr        PASSED
+jal         PASSED
 lui         PASSED
+lw          PASSED
 ori         PASSED
 or          PASSED
 rebouclage  PASSED
+sb          PASSED
+sh          PASSED
 slli        PASSED
 sll         PASSED
 slti        PASSED
@@ -24,5 +29,6 @@ sra         PASSED
 srli        PASSED
 srl         PASSED
 sub         PASSED
+sw          PASSED
 xori        PASSED
 xor         PASSED

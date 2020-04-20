@@ -63,10 +63,15 @@ architecture RTL of CPU_PC is
 		S_LBU,
 		S_LB,
         S_WRITE_MEM,
-        S_LD_MEM,
         S_SW,
         S_SB,
-        S_SH
+        S_SH,
+        S_JAL,
+		S_JALR,
+		S_Interrupt,
+		S_IR_SAVE,
+		S_MRET,
+		S_CSRR
 	);
 
 	signal state_d, state_q : State_type;
@@ -119,16 +124,16 @@ begin
 		cmd.mem_we            <= '0';
 		cmd.mem_ce            <= '0';
 
-		cmd.cs.CSR_we            <= UNDEFINED;
+		cmd.cs.CSR_we            <= CSR_mcause;
 
-		cmd.cs.TO_CSR_sel        <= UNDEFINED;
-		cmd.cs.CSR_sel           <= UNDEFINED;
-		cmd.cs.MEPC_sel          <= UNDEFINED;
+		cmd.cs.TO_CSR_sel        <= TO_CSR_from_rs1;
+		cmd.cs.CSR_sel           <= CSR_from_mepc;
+		cmd.cs.MEPC_sel          <= MEPC_from_csr;
 
 		cmd.cs.MSTATUS_mie_set   <= '0';
 		cmd.cs.MSTATUS_mie_reset <= '0';
 
-		cmd.cs.CSR_WRITE_mode    <= UNDEFINED;
+		cmd.cs.CSR_WRITE_mode    <= WRITE_mode_simple;
 
 		state_d <= state_q;
 
@@ -154,139 +159,158 @@ begin
 			when S_Fetch =>
 				-- IR <- mem_datain
 				cmd.IR_we <= '1';
-				state_d <= S_Decode;
+
+				if status.IT then
+					state_d <= S_IR_SAVE;
+				else
+					state_d <= S_Decode;
+				end if;
 
 			when S_Decode =>
-
-				-- Instruction lui
-				if status.IR(6 downto 0) = "0110111" then
-					-- Pc <- PC + 4
-					cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
-					cmd.PC_sel <= PC_from_pc;
-					cmd.PC_we <= '1';
-					state_d <= S_LUI;
+                case status.IR(6 downto 0) is
+			    	-- Instruction lui
+                    when  "0110111" =>
+					    -- Pc <- PC + 4
+					    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+					    cmd.PC_sel <= PC_from_pc;
+					    cmd.PC_we <= '1';
+					    state_d <= S_LUI;
 				
-				-- Intruction auipc
-				elsif status.IR(6 downto 0) = "0010111" then
-					state_d <= S_AUIPC;
+				    -- Intruction auipc
+                    when "0010111" =>
+					    state_d <= S_AUIPC;
 
-				-- Instructions de branchements
-               	elsif status.IR(6 downto 0) = "1100011" then
-                	cmd.ALU_Y_sel <= ALU_Y_rf_rs2;
-                    if status.IR(14 downto 12)="000" then
-				        state_d <= S_BEQ;
-                    elsif status.IR(14 downto 12) = "101" then
-                        state_d <= S_BGE;
-                    elsif status.IR(14 downto 12) = "111" then
-                        state_d <= S_BGEU;
-                    elsif status.IR(14 downto 12) = "100" then
-                        state_d <= S_BLT;
-                    elsif status.IR(14 downto 12) = "110" then
-                        state_d <= S_BLTU;
-                    else
-                        state_d <= S_BNE;
-					end if;
+			    	-- Instructions de branchements
+                    when "1100011" =>
+                	    cmd.ALU_Y_sel <= ALU_Y_rf_rs2;
+                        if status.IR(14 downto 12)="000" then
+				            state_d <= S_BEQ;
+                        elsif status.IR(14 downto 12) = "101" then
+                            state_d <= S_BGE;
+                        elsif status.IR(14 downto 12) = "111" then
+                            state_d <= S_BGEU;
+                        elsif status.IR(14 downto 12) = "100" then
+                            state_d <= S_BLT;
+                        elsif status.IR(14 downto 12) = "110" then
+                            state_d <= S_BLTU;
+                        else
+                            state_d <= S_BNE;
+					    end if;
 
-				-- Instructions de lecture en mémoire
-				elsif status.IR(6 downto 0) = "0000011" then
-					-- Pc <- Pc + 4
-					cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
-					cmd.PC_sel <= PC_from_pc;
-					cmd.PC_we <= '1';
-					-- Choix de l'état futur
-					if status.IR(14 downto 12) = "000" then
-						state_d <= S_LB;
-					elsif status.IR(14 downto 12) = "001" then
-						state_d <= S_LH;
-					elsif status.IR(14 downto 12) = "010" then
-						state_d <= S_LW;
-					elsif status.IR(14 downto 12) = "100" then
-						state_d <= S_LBU;
-					elsif status.IR(14 downto 12) = "101" then
-						state_d <= S_LHU;
-					end if;
-			    ---Instructions d'écriture en mémoire---
-                elsif status.IR(6 downto 0) = "0100011" then
-                    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
-                    cmd.PC_sel <= PC_from_pc;
-                    cmd.PC_we <= '1';
-                    ---choix état futur---
-                   -- if status.IR(14 downto 12)="010" then
-                    state_d <= S_SW;
-                   -- elsif status.IR(14 downto 12)="001" then
-                     --   state_d <= S_SH;
-                   -- else
-                     --   state_d <= S_SB;
-                   -- end if;
+			    	-- Instructions de lecture en mémoire
+                    when "0000011" =>
+				    	-- Pc <- Pc + 4
+					    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+					    cmd.PC_sel <= PC_from_pc;
+					    cmd.PC_we <= '1';
+					    -- Choix de l'état futur
+					    if status.IR(14 downto 12) = "000" then
+						    state_d <= S_LB;
+					    elsif status.IR(14 downto 12) = "001" then
+						    state_d <= S_LH;
+					    elsif status.IR(14 downto 12) = "010" then
+						    state_d <= S_LW;
+					    elsif status.IR(14 downto 12) = "100" then
+						    state_d <= S_LBU;
+					    elsif status.IR(14 downto 12) = "101" then
+						    state_d <= S_LHU;
+					    end if;
+			        ---Instructions d'écriture en mémoire---
+                    when "0100011" =>
+                        cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+                        cmd.PC_sel <= PC_from_pc;
+                        cmd.PC_we <= '1';
+                        ---choix état futur---
+                        if status.IR(14 downto 12)="010" then
+                            state_d <= S_SW;
+                        elsif status.IR(14 downto 12)="001" then
+                            state_d <= S_SH;
+                        elsif status.IR(14 downto 12)="000" then
+                            state_d <= S_SB;
+                        end if;
 
 
-				-- Instructions du type "registre immédiat"
-				elsif status.IR(6 downto 0) = "0010011" then
-					-- Pc <- PC + 4
-					cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
-					cmd.PC_sel <= PC_from_pc;
-					cmd.PC_we <= '1';
-					-- Choix de l'état futur
-					if status.IR(14 downto 12) = "000" then
-						state_d <= S_ADDI;
-					elsif status.IR(14 downto 12) = "001" then
-						state_d <= S_SLLI;
-					elsif status.IR(14 downto 12) = "111" then
-						state_d <=S_ANDI;
-					elsif status.IR(14 downto 12) = "110" then
-						state_d <= S_ORI;
-					elsif status.IR(14 downto 12) = "100" then
-						state_d <= S_XORI;
-					elsif status.IR(14 downto 12) = "010" then
-						state_d <= S_SLTI;
-					elsif status.IR(14 downto 12) = "011" then
-						state_d <= S_SLTIU;
-					else -- status.IR(14 downto 12) = "101"
-						if status.IR(31 downto 25) = "0100000" then
-							state_d <= S_SRAI;
+				    -- Instructions du type "registre immédiat"
+                    when "0010011" =>
+					    -- Pc <- PC + 4
+					    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+					    cmd.PC_sel <= PC_from_pc;
+					    cmd.PC_we <= '1';
+					    -- Choix de l'état futur
+					    if status.IR(14 downto 12) = "000" then
+						    state_d <= S_ADDI;
+					    elsif status.IR(14 downto 12) = "001" then
+						    state_d <= S_SLLI;
+					    elsif status.IR(14 downto 12) = "111" then
+						    state_d <=S_ANDI;
+					    elsif status.IR(14 downto 12) = "110" then
+						    state_d <= S_ORI;
+					    elsif status.IR(14 downto 12) = "100" then
+						    state_d <= S_XORI;
+					    elsif status.IR(14 downto 12) = "010" then
+						    state_d <= S_SLTI;
+					    elsif status.IR(14 downto 12) = "011" then
+						    state_d <= S_SLTIU;
+					    else -- status.IR(14 downto 12) = "101"
+						    if status.IR(31 downto 25) = "0100000" then
+							    state_d <= S_SRAI;
+						    else
+							    state_d <= S_SRLI;
+						    end if;
+					    end if;
+
+				    -- Instructions du type "registre registre"
+                    when "0110011" =>
+					    -- Pc <- PC + 4
+					    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+				    	cmd.PC_sel <= PC_from_pc;
+					    cmd.PC_we <= '1';
+					    -- Choix del'état futur
+					    if status.IR(14 downto 12) = "000" then
+						    if status.IR(31 downto 25) = "0100000"then
+							    state_d <= S_SUB;
+						    else
+							    state_d <= S_ADD;
+						    end if;
+					    elsif status.IR(14 downto 12) = "001" then
+							    state_d <= S_SLL;
+					    elsif status.IR(14 downto 12) = "101" then
+						    if status.IR(31 downto 25) = "0100000" then
+							    state_d <= S_SRA;
+						    else
+							    state_d <= S_SRL;
+						    end if;
+					    elsif status.IR(14 downto 12) = "111" then
+							    state_d <= S_AND;
+					    elsif status.IR(14 downto 12) = "110" then
+							    state_d <= S_OR;
+					    elsif status.IR(14 downto 12) = "100" then
+							    state_d <= S_XOR;
+					    elsif status.IR(14 downto 12) = "010" then
+						    state_d <= S_SLT;
+					    elsif status.IR(14 downto 12) = "011" then
+						    state_d <= S_SLTU;
+					    end if;
+				    ---instructions type saut---
+                    when "1101111" =>
+                        state_d <= S_JAL;
+                    when "1100111" =>
+					    state_d <= S_JALR;
+					---instructions type interruptions---
+					when "1110011" =>
+						-- Pc <- PC + 4
+						cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
+						cmd.PC_sel <= PC_from_pc;
+						cmd.PC_we <= '1';
+						
+						if status.IR(14 downto 12) = "000" then
+							state_d <= S_MRET;
 						else
-							state_d <= S_SRLI;
+							state_d <= S_CSRR;
 						end if;
-					end if;
-
-				-- Instructions du type "registre registre"
-				elsif status.IR(6 downto 0) = "0110011" then
-					-- Pc <- PC + 4
-					cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
-					cmd.PC_sel <= PC_from_pc;
-					cmd.PC_we <= '1';
-					-- Choix del'état futur
-					if status.IR(14 downto 12) = "000" then
-						if status.IR(31 downto 25) = "0100000"then
-							state_d <= S_SUB;
-						else
-							state_d <= S_ADD;
-						end if;
-					elsif status.IR(14 downto 12) = "001" then
-							state_d <= S_SLL;
-					elsif status.IR(14 downto 12) = "101" then
-						if status.IR(31 downto 25) = "0100000" then
-							state_d <= S_SRA;
-						else
-							state_d <= S_SRL;
-						end if;
-					elsif status.IR(14 downto 12) = "111" then
-							state_d <= S_AND;
-					elsif status.IR(14 downto 12) = "110" then
-							state_d <= S_OR;
-					elsif status.IR(14 downto 12) = "100" then
-							state_d <= S_XOR;
-					elsif status.IR(14 downto 12) = "010" then
-						state_d <= S_SLT;
-					elsif status.IR(14 downto 12) = "011" then
-						state_d <= S_SLTU;
-					end if;
-				
-
-					
-				else
-					state_d <= S_Error;
-				end if;
+                    when others =>
+					    state_d <= S_Error;
+				    end case;
 
 
 
@@ -583,6 +607,28 @@ begin
                 cmd.PC_we <= '1';
 				state_d <= S_Pre_Fetch;
 
+            when S_JAL =>
+                cmd.PC_Y_sel <= PC_Y_cst_x04;
+                cmd.PC_X_sel <= PC_X_pc;
+                cmd.DATA_sel <= DATA_from_pc;
+                cmd.RF_we <= '1';
+                cmd.PC_sel <= PC_from_pc;
+                cmd.TO_PC_Y_sel <= TO_PC_Y_immJ;
+                cmd.PC_we <= '1';
+                state_d <= S_Pre_Fetch;
+
+            when S_JALR =>
+                cmd.PC_Y_sel <= PC_Y_cst_x04;
+                cmd.PC_X_sel <= PC_X_pc;
+                cmd.DATA_sel <= DATA_from_pc;
+                cmd.RF_we <= '1';
+                cmd.ALU_Y_sel <= ALU_Y_immI;
+                cmd.ALU_op <= ALU_plus;
+                cmd.PC_sel <= PC_from_alu;
+                cmd.PC_we <= '1';
+                state_d <= S_Pre_Fetch;
+
+
 ---------- Instructions de chargement à partir de la mémoire ----------
 			when S_LB|S_LH|S_LW|S_LBU|S_LHU =>
 				cmd.AD_Y_SEL <= AD_Y_immI;
@@ -629,33 +675,103 @@ begin
 				state_d <= S_Fetch;
 
 
-
-            when S_SW => --|S_SH|S_SB =>
-                cmd.RF_SIGN_enable <= '1';
-                cmd.RF_SIZE_sel <= RF_SIZE_word;
+---------- Instructions de sauvegarde en mémoire ----------
+            when S_SW|S_SH|S_SB => -- on peut tout regrouper
                 cmd.AD_Y_SEL <= AD_Y_immS;
                 cmd.AD_we <= '1';
                 state_d <= S_WRITE_MEM;
                 -- Ok
 
             when S_WRITE_MEM =>
-                cmd.RF_SIGN_enable <= '1';
-               -- if status.IR(14 downto 12)="010" then
-                cmd.RF_SIZE_sel <= RF_SIZE_word;
-                --elsif status.IR(14 downto 12)="001" then
-                   -- cmd.RF_SIZE_sel <= RF_SIZE_half;
-               -- else --if "000"---
-                   -- cmd.RF_SIZE_sel <= RF_SIZE_byte;
-                --end if;
+                if status.IR(14 downto 12)="010" then
+                    cmd.RF_SIZE_sel <= RF_SIZE_word;
+                elsif status.IR(14 downto 12)="001" then
+                    cmd.RF_SIZE_sel <= RF_SIZE_half;
+                elsif status.IR(14 downto 12)="000" then
+                    cmd.RF_SIZE_sel <= RF_SIZE_byte;
+                end if;
                 cmd.ADDR_sel <= ADDR_from_ad;
                 cmd.mem_ce <= '1';
                 cmd.mem_we <= '1';
                 state_d <= S_Pre_Fetch;
 
 
----------- Instructions de sauvegarde en mémoire ----------
-
 ---------- Instructions d'accès aux CSR ----------
+			when S_IR_SAVE =>
+				-- On sauvegarde PC
+				cmd.cs.CSR_WRITE_mode <= WRITE_mode_simple;
+				cmd.cs.MEPC_sel <= MEPC_from_pc;
+				cmd.cs.CSR_we <= CSR_mepc;
+				-- On maque les interruptions
+				cmd.cs.MSTATUS_mie_reset <= '1';
+				-- On charge PC avec mtvec
+				cmd.PC_sel <= PC_mtvec;
+				cmd.PC_we <= '1';
+
+				state_d <= S_Pre_Fetch;
+
+			when S_MRET =>
+				-- On restaure PC
+				cmd.PC_sel <= PC_from_mepc;
+				cmd.PC_we <= '1';
+				-- On démaque les interruptions
+				cmd.cs.MSTATUS_mie_set <= '1';
+				-- Prochain état
+				state_d <= S_Pre_Fetch;
+
+			when S_CSRR =>
+				-- rd <- csr
+				cmd.RF_we <= '1';
+				cmd.DATA_sel <= DATA_from_csr;
+
+				-- On choisit le registre où l'on va écrire
+				if status.IR(31 downto 20)="001100000000" then
+					cmd.cs.CSR_sel <= CSR_from_mstatus;
+                    cmd.cs.CSR_we <= CSR_mstatus;
+                elsif status.IR(31 downto 20)="001100000100" then
+					cmd.cs.CSR_sel <= CSR_from_mie;
+                    cmd.cs.CSR_we <= CSR_mie;
+				elsif status.IR(31 downto 20)="001100000101" then
+					cmd.cs.CSR_sel <= CSR_from_mtvec;
+					cmd.cs.CSR_we <= CSR_mtvec;
+				elsif status.IR(31 downto 20)="001101000001" then
+					cmd.cs.MEPC_sel <= MEPC_from_csr;
+					cmd.cs.CSR_sel <= CSR_from_mepc;
+					cmd.cs.CSR_we <= CSR_mepc;
+				elsif status.IR(31 downto 20)="001101000010" then
+					cmd.cs.CSR_sel <= CSR_from_mcause;
+					cmd.cs.CSR_we <= CSR_mcause;
+				elsif status.IR(31 downto 20)="001101000100" then
+					cmd.cs.CSR_sel <= CSR_from_mip;
+					cmd.cs.CSR_we <= CSR_mip;
+				end if;
+				
+				-- On décide de ce que l'on va mettre dans CSR et le mode d'écriture (par défaut rs1)
+				if status.IR(14 downto 12) = "010" then
+					-- csr <- csr or rs1 (csrrs)
+					cmd.cs.CSR_WRITE_mode <= WRITE_mode_set;
+				elsif status.IR(14 downto 12) = "011" then
+					-- csr <- csr and (not rs1) (csrrc)
+					cmd.cs.CSR_WRITE_mode <= WRITE_mode_clear;
+				elsif status.IR(14 downto 12) = "101" then
+					-- csr <- 0^27 || zimm (csrrwi)
+					cmd.cs.TO_CSR_sel <= TO_CSR_from_imm;
+				elsif status.IR(14 downto 12) = "110" then
+					-- csr <- csr or (0^27 || zimm) (csrrsi)
+					cmd.cs.TO_CSR_sel <= TO_CSR_from_imm;
+					cmd.cs.CSR_WRITE_mode <= WRITE_mode_set;
+				else
+					-- csr <- csr and (not (0^27 || zimm)) (csrrci)
+					cmd.cs.TO_CSR_sel <= TO_CSR_from_imm;
+					cmd.cs.CSR_WRITE_mode <= WRITE_mode_clear;
+				end if;
+
+				-- lecture mem[PC]
+				cmd.ADDR_sel <= ADDR_from_pc;
+				cmd.mem_ce <= '1';
+				cmd.mem_we <= '0';
+				-- next state
+				state_d <= S_Fetch;
 
 			when others => null;
 		end case;
