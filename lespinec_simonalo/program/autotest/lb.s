@@ -1,25 +1,16 @@
 # TAG = lb
 
-    .data
-    nul : .word 0 #00000000
-    negatif : .word -8 #FFFFFFF8
-    positif : .word  3 #00000003
-
     .text
+    # test de chargement dun mot en mémoire
+    lui x31, 0
+    li x30, 0x000000ff
+    lui x1, 0x11110
+    sb x30, 0x10(x1)
+    lb x31, 0x10(x1)
 
-    # On charge l'adresse du mot dans un registre puis on lit ce qu'il y a à cette adresse
-    la x1, nul
-    lb x31, (x30)
-
-    la x1, negatif
-    lb x31, (x30)
-
-    la x1, positif
-    lb x31, (x30)
 
     # max_cycle 50
     # pout_start
     # 00000000
-    # FFFFFFF8
-    # 00000003
+    # ffffffff
     # pout_end

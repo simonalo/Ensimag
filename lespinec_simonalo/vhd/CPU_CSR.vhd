@@ -109,7 +109,8 @@ begin
 			when TO_CSR_from_rs1 =>
                 TO_CSR <= rs1;
 			when TO_CSR_from_imm =>
-                TO_CSR <= imm;
+				TO_CSR <= imm;
+			when others => null;
 		end case;
 
 		mip_D(7)    <= mtip;
@@ -125,22 +126,20 @@ begin
         
         -- mise à jour en fonction des we
 		case cmd.CSR_we is
-			when CSR_mtval =>
-				mtval_D <= CSR_write(TO_CSR, mtval_D, cmd.CSR_WRITE_mode);
 			when CSR_mie =>
-				mie_D <= CSR_write(TO_CSR, mie_D, cmd.CSR_WRITE_mode);
+				mie_D <= CSR_write(TO_CSR, mie_Q, cmd.CSR_WRITE_mode);
 			when CSR_mstatus =>
-				mstatus_D <= CSR_write(TO_CSR, mstatus_D, cmd.CSR_WRITE_mode);
+				mstatus_D <= CSR_write(TO_CSR, mstatus_Q, cmd.CSR_WRITE_mode);
 			when CSR_mtvec =>
-				mtvec_D <= CSR_write(TO_CSR, mtvec_D, cmd.CSR_WRITE_mode);
+				mtvec_D <= CSR_write(TO_CSR, mtvec_Q, cmd.CSR_WRITE_mode);
 				mtvec_D(0) <= '0';
 				mtvec_D(1) <= '0';
 			when CSR_mepc =>
 				case cmd.MEPC_sel is
 					when MEPC_from_csr =>
-						mepc_D <= CSR_write(TO_CSR, mepc_D, cmd.CSR_WRITE_mode);
+						mepc_D <= CSR_write(TO_CSR, mepc_Q, cmd.CSR_WRITE_mode);
 					when MEPC_from_pc =>
-						mepc_D <= CSR_write(pc, mepc_D, cmd.CSR_WRITE_mode);
+						mepc_D <= CSR_write(pc, mepc_Q, cmd.CSR_WRITE_mode);
 					when others => null;
 				end case;
 				mepc_D(0) <= '0';
@@ -160,12 +159,10 @@ begin
 				when others => null;
 		end case;
         
-    -- Séléection de la sortie
+    -- Séléction de la sortie
 	case cmd.CSR_sel is
 		when CSR_from_mcause =>
 			CSR <= mcause_Q;
-		when CSR_from_mtval =>
-			CSR <= mtval_Q;
 		when CSR_from_mip =>
 			CSR <= mip_Q;
 		when CSR_from_mie =>

@@ -94,7 +94,6 @@ begin
 	begin
 
 		-- Valeurs par défaut de cmd à définir selon les préférences de chacun
-		cmd.rst               <= '0';
 		cmd.ALU_op            <= ALU_plus;
 		cmd.LOGICAL_op        <= LOGICAL_and;
 		cmd.ALU_Y_sel         <= ALU_Y_immI;
@@ -124,7 +123,7 @@ begin
 		cmd.mem_we            <= '0';
 		cmd.mem_ce            <= '0';
 
-		cmd.cs.CSR_we            <= CSR_mcause;
+		cmd.cs.CSR_we            <= CSR_none;
 
 		cmd.cs.TO_CSR_sel        <= TO_CSR_from_rs1;
 		cmd.cs.CSR_sel           <= CSR_from_mepc;
@@ -699,7 +698,6 @@ begin
 ---------- Instructions d'accès aux CSR ----------
 			when S_IR_SAVE =>
 				-- On sauvegarde PC
-				cmd.cs.CSR_WRITE_mode <= WRITE_mode_simple;
 				cmd.cs.MEPC_sel <= MEPC_from_pc;
 				cmd.cs.CSR_we <= CSR_mepc;
 				-- On maque les interruptions
@@ -738,16 +736,17 @@ begin
 					cmd.cs.MEPC_sel <= MEPC_from_csr;
 					cmd.cs.CSR_sel <= CSR_from_mepc;
 					cmd.cs.CSR_we <= CSR_mepc;
-				elsif status.IR(31 downto 20)="001101000010" then
-					cmd.cs.CSR_sel <= CSR_from_mcause;
-					cmd.cs.CSR_we <= CSR_mcause;
 				elsif status.IR(31 downto 20)="001101000100" then
 					cmd.cs.CSR_sel <= CSR_from_mip;
-					cmd.cs.CSR_we <= CSR_mip;
+				elsif status.IR(31 downto 20)="001101000010" then
+					cmd.cs.CSR_sel <= CSR_from_mcause;
 				end if;
 				
 				-- On décide de ce que l'on va mettre dans CSR et le mode d'écriture (par défaut rs1)
-				if status.IR(14 downto 12) = "010" then
+				if status.IR(14 downto 12) = "001" then
+					-- csr <- rs1 (csrrs)
+					cmd.cs.CSR_WRITE_mode <= WRITE_mode_simple;
+				elsif status.IR(14 downto 12) = "010" then
 					-- csr <- csr or rs1 (csrrs)
 					cmd.cs.CSR_WRITE_mode <= WRITE_mode_set;
 				elsif status.IR(14 downto 12) = "011" then
@@ -760,18 +759,13 @@ begin
 					-- csr <- csr or (0^27 || zimm) (csrrsi)
 					cmd.cs.TO_CSR_sel <= TO_CSR_from_imm;
 					cmd.cs.CSR_WRITE_mode <= WRITE_mode_set;
-				else
+				elsif status.IR(14 downto 12) = "111" then
 					-- csr <- csr and (not (0^27 || zimm)) (csrrci)
 					cmd.cs.TO_CSR_sel <= TO_CSR_from_imm;
 					cmd.cs.CSR_WRITE_mode <= WRITE_mode_clear;
 				end if;
 
-				-- lecture mem[PC]
-				cmd.ADDR_sel <= ADDR_from_pc;
-				cmd.mem_ce <= '1';
-				cmd.mem_we <= '0';
-				-- next state
-				state_d <= S_Fetch;
+				state_d <= S_Pre_Fetch;
 
 			when others => null;
 		end case;
