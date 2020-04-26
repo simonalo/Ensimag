@@ -18,13 +18,8 @@
     mulhu x31, x2, x1
 
     #Test de soustraction de deux valeur maximale dans x31
-	li x1, 0xF0000000
+	li x1, 0x0F000000
 	li x2, 0x00000002
-    mulhu x31, x2, x1
-
-	#Test de soustraction de deux valeur maximale dans x31
-	li x1, 0xF0000000
-	li x2, 0xE0000000
     mulhu x31, x2, x1
 
 	# max_cycle 500
@@ -32,6 +27,5 @@
 	# 00000000 
 	# 00000001
 	# 00000006
-	# 00000001
-	# 00000001
+	# 1E000000
 	# pout_end
