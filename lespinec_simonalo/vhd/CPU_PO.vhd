@@ -218,8 +218,6 @@ begin
                     PC_d <= PC_q + TO_PC_y;
                 when PC_from_mepc =>
                     PC_d <= MEPC_value;
-                when PC_from_alu2 =>
-                    PC_d <= ALU2_res
                 when others => null;
             end case;
         end if;
