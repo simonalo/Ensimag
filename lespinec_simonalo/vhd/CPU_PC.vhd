@@ -617,6 +617,10 @@ begin
 					cmd.ALU2_op_type <= ALU_div;
 				elsif status.IR(14 downto 12)="101" then
 					cmd.ALU2_op_type <= ALU_divu;
+				elsif status.IR(14 downto 12)="110" then
+					cmd.ALU2_op_type <= ALU_rem;
+				elsif status.IR(14 downto 12)="111" then
+					cmd.ALU2_op_type <= ALU_remu;
 				end if;
 				
 				cmd.DATA_sel <= DATA_from_alu2;

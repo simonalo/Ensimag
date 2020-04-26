@@ -292,6 +292,7 @@ begin
                      (others => 'U');
 
     ALU2_res_temp2 <= signed('0' & RS1_q) / signed('0' &  ALU_y) when cmd.ALU2_op_type = ALU_divu  else
+    ALU2_res_temp2 <= signed('0' & RS1_q) mod signed('0' &  ALU_y) when cmd.ALU2_op_type = ALU_remu  else
                      (others => 'U');
 
     ALU2_res <= unsigned(ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
@@ -300,6 +301,8 @@ begin
                 unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhu  else
                 unsigned(signed(RS1_q) / signed(ALU_y)) when cmd.ALU2_op_type = ALU_div  else
                 unsigned(ALU2_res_temp2(31 downto 0)) when cmd.ALU2_op_type = ALU_divu  else
+                unsigned(signed(RS1_q) mod signed(ALU_y)) when cmd.ALU2_op_type = ALU_rem  else
+                unsigned(ALU2_res_temp2(31 downto 0)) when cmd.ALU2_op_type = ALU_remu  else
                 (others => 'U');
 
     -- Sélection de l'opération effectuée par l'opérateur logique
