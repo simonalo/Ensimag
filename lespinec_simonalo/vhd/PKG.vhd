@@ -150,7 +150,7 @@ package PKG is
     );
 
     type ALU2_op_type is (
-        mul,
+        ALU_mul,
         UNDEFINED
     );
 
