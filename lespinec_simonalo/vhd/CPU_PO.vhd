@@ -284,10 +284,10 @@ begin
                (others => 'U');
 
     -- Sélection de l'opération effectiée par l'UAL2
-    ALU2_res_temp <= signed(signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
-                     signed(signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mulh  else
-                     signed(signed(RS1_q(31) & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
-                     signed(unsigned('0' & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
+    ALU2_res_temp <= (signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
+                     (signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mulh  else
+                     (signed(RS1_q(31) & RS1_q) * signed('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
+                     (signed('0' & RS1_q) * signed('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
                      (others => 'U');
 
     ALU2_res <= unsigned(ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
