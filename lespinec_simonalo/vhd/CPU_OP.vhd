@@ -35,4 +35,6 @@ begin
     else
         res <= zeros;
     end if;
+
+    res <= zeros;;
 end architecture;
