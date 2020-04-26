@@ -137,9 +137,6 @@ begin
 
 		-- Deuxième ALU
 		cmd.ALU2_op_type		<= ALU_mul;
-		cmd.ALU2_result_type 	<= Poids_forts;
-		cmd.ALU2_signe1 		<= Signed1;
-		cmd.ALU2_signe2 		<= Signed2;
 
 		state_d <= state_q;
 
