@@ -6,7 +6,7 @@
     sltu x31, x0, x0 
 
 	# Comparaison de 0 et 1
-	li x1, 1 #Chargement de 1 dans x2
+	li x1, 0x00000001 #Chargement de 1 dans x2
     sltu x31, x0, x1
 
     # Comparaison de deux valeurs quelconques
