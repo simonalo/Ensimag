@@ -610,9 +610,6 @@ begin
 			when S_MUL =>
 				cmd.ALU_Y_sel <= ALU_Y_rf_rs2;
 				cmd.ALU2_op_type <= ALU_mul;
-				cmd.ALU2_result_type <= Poids_faibles;
-				cmd.ALU2_signe1 <= Signed1;
-				cmd.ALU2_signe2 <= Signed2;
 				
 				cmd.DATA_sel <= DATA_from_alu2;
 				cmd.RF_we <= '1';

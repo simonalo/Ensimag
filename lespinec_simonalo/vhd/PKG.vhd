@@ -154,24 +154,6 @@ package PKG is
         UNDEFINED
     );
 
-    type ALU2_result_type is (
-        Poids_forts,
-        Poids_faibles,
-        UNDEFINED
-    );
-
-    type ALU2_signe1 is (
-        Signed1,
-        Unsigned1,
-        UNDEFINED
-    );
-
-    type ALU2_signe2 is (
-        Signed2,
-        Unsigned2,
-        UNDEFINED
-    );
-
     -- Commandes vers les csr
     type PO_cs_cmd is record
         CSR_we              : CSR_write_enable;
@@ -220,9 +202,6 @@ package PKG is
         cs                  : PO_cs_cmd;
 
         ALU2_op_type        : ALU2_op_type;
-        ALU2_result_type    : ALU2_result_type;
-        ALU2_signe1         : ALU2_signe1;
-        ALU2_signe2         : ALU2_signe2;
     end record;
 
     -- Status
@@ -435,21 +414,6 @@ package PKG is
             jcond       : out std_logic
             );
     end component CPU_CND;
-
-    component CPU_OP is
-        generic (
-            mutant           : integer := 0
-        );
-        port (
-            signe1      : in ALU2_signe1;
-            signe2      : in ALU2_signe2;
-            op_code     : in ALU2_op_type;
-            type_result : in ALU2_result_type;
-            rs1         : in w32;
-            rs2         : in w32;
-            res         : out w32
-            );
-    end component CPU_OP;
 
     -- Plateform Level Interrupt Controller
     component IP_PLIC

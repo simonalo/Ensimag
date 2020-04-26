@@ -282,6 +282,10 @@ begin
                RS1_q - ALU_y when cmd.ALU_op = ALU_minus else
                (others => 'U');
 
+    -- Sélection de l'opération effectiée par l'UAL2
+    ALU2_res <= (signed(RS1_q) * signed(ALU_y))(31 downto 0) when cmd.ALU2_optype = ALU_mul  else
+               (others => 'U');
+
     -- Sélection de l'opération effectuée par l'opérateur logique
     LOGICAL_res <= RS1_q and ALU_y when cmd.LOGICAL_op = LOGICAL_and else
                    RS1_q or  ALU_y when cmd.LOGICAL_op = LOGICAL_or  else
@@ -383,20 +387,6 @@ begin
             IR          => IR_q,
             SLT         => SLT,
             JCOND       => JMP
-    );
-
-    OP : CPU_OP
-        generic map (
-            mutant      => mutant
-        )
-        port map (
-            signe1      => cmd.ALU2_signe1,
-            signe2      => cmd.ALU2_signe2,
-            op_code     => cmd.ALU2_op_type,
-            type_result => cmd.ALU2_result_type,
-            rs1         => RS1_q,
-            rs2         => ALU_y,
-            res         => ALU2_res
     );
 
 end architecture;
