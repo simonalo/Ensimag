@@ -22,7 +22,7 @@
 
 
 	#Test du maximum décalages d'une valeur quelconque
-    li x1, 0x00000001
+    li x1, 0x0000000f
 	li x2, 0x12345678
     sra x31, x2, x1
 
