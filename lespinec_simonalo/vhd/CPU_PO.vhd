@@ -68,7 +68,7 @@ architecture RTL of CPU_PO is
     -- Signaux pour l'UAL
     signal ALU_y, ALU_res : w32;
     -- Signal pour le deuxième UAL (multiplication, division, reste)
-    signal ALU2_res_temp : signed(63 downto 0);
+    signal ALU2_res_temp : signed(64 downto 0);
     signal ALU2_res : w32;
     -- Signaux pour les opérations logiques
     signal LOGICAL_res : w32;
@@ -284,16 +284,16 @@ begin
                (others => 'U');
 
     -- Sélection de l'opération effectiée par l'UAL2
-    ALU2_res_temp <= (signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
-                     (signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mulh  else
-                     (signed(RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
+    ALU2_res_temp <= (signed(RS1_q(31) & RS1_q) * signed(ALU_y(31) & ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
+                     (signed(RS1_q(31) & RS1_q) * signed(ALU_y(31) & ALU_y)) when cmd.ALU2_op_type = ALU_mulh  else
+                     (signed(RS1_q(31) & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
                      (unsigned('0' & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
                      (others => 'U');
 
     ALU2_res <= unsigned(ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
-    ALU2_res <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulh  else
-    ALU2_res <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhsu  else
-    ALU2_res <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhu  else
+             <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulh  else
+             <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhsu  else
+             <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhu  else
                 (others => 'U');
 
     -- Sélection de l'opération effectuée par l'opérateur logique

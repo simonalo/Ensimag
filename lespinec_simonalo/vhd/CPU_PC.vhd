@@ -271,7 +271,7 @@ begin
 						-- Choix de l'état futur
 						-- Cas des multiplications, divisions et reste
 						if status.IR(31 downto 25) = "0000001" then
-							tate_d <= S_MUL_DIV_REM;
+							state_d <= S_MUL_DIV_REM;
 						else
 							if status.IR(14 downto 12) = "000" then
 								if status.IR(31 downto 25) = "0100000"then
