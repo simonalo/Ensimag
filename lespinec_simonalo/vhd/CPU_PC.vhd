@@ -608,7 +608,7 @@ begin
 				state_d <= S_Fetch;
 
 			when S_MUL =>
-				cmd.op.ALU2_op <= mul;
+				cmd.op.ALU2_op <= ALU_mul;
 				cmd.op.ALU2_res_select <= Poids_faibles;
 				cmd.op.ALU2_signe1 <= signed1;
 				cmd.op.ALU2_signe2 <= signed2;
