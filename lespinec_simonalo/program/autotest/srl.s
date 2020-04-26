@@ -21,7 +21,7 @@
     srl x31, x2, x1
 
 	#Test du maximum décalages d'une valeur quelconque
-    li x1, 0x00000020
+    li x1, 0x0000000f
 	li x2, 0x12345678
     srl x31, x2, x1
 
