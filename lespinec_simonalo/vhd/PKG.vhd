@@ -218,6 +218,11 @@ package PKG is
         mem_ce              : std_logic;
 
         cs                  : PO_cs_cmd;
+
+        ALU2_op_type        : ALU2_op_type;
+        ALU2_result_type    : ALU2_result_type;
+        ALU2_signe1         : ALU2_signe1;
+        ALU2_signe2         : ALU2_signe2;
     end record;
 
     -- Status
@@ -437,8 +442,8 @@ package PKG is
             mutant           : integer := 0
         );
         port (
-            signe1      : in std_logic;
-            signe2      : in std_logic;
+            signe1      : in ALU2_signe1;
+            signe2      : in ALU2_signe2;
             op_code     : in ALU2_op_type;
             type_result : in ALU2_result_type;
             rs1         : in w32;
