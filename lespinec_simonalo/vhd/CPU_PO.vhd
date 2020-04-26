@@ -284,16 +284,16 @@ begin
                (others => 'U');
 
     -- Sélection de l'opération effectiée par l'UAL2
-    ALU2_res_temp <= unsigned(signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
-                     unsigned(signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mulh  else
-                     unsigned(signed(RS1_q(31) & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
-                     unsigned(unsigned('0' & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
+    ALU2_res_temp <= signed(signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
+                     signed(signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mulh  else
+                     signed(signed(RS1_q(31) & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
+                     signed(unsigned('0' & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
                      (others => 'U');
 
-    ALU2_res <= (ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
-             <= (ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulh  else
-             <= (ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhsu  else
-             <= (ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhu  else
+    ALU2_res <= unsigned(ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
+             <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulh  else
+             <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhsu  else
+             <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhu  else
                 (others => 'U');
 
     -- Sélection de l'opération effectuée par l'opérateur logique
