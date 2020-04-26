@@ -6,7 +6,7 @@
     slt x31, x0, x0
 
 	# Comparaison de 0 et de 1
-	li x1, 1
+	li x1, 0x00000001
     slt x31, x0, x1
 
     # Comparaison de deux valeurs extremes
