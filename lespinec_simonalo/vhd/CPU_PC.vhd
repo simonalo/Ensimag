@@ -609,6 +609,10 @@ begin
 					cmd.ALU2_op_type <= ALU_mul;
 				elsif status.IR(14 downto 12)="001" then
 					cmd.ALU2_op_type <= ALU_mulh;
+				elsif status.IR(14 downto 12)="010" then
+					cmd.ALU2_op_type <= ALU_mulhsu;
+				elsif status.IR(14 downto 12)="011" then
+					cmd.ALU2_op_type <= ALU_mulhu;
 				end if;
 				
 				cmd.DATA_sel <= DATA_from_alu2;
