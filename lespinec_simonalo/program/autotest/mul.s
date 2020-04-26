@@ -1,4 +1,4 @@
-# TAG = sub
+# TAG = mul
 
 	.text
 
