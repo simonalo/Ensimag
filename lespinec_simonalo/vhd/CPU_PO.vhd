@@ -292,7 +292,7 @@ begin
                      (others => 'U');
 
     ALU2_res_temp2 <= signed('0' & RS1_q) / signed('0' &  ALU_y) when cmd.ALU2_op_type = ALU_divu  else
-    ALU2_res_temp2 <= signed('0' & RS1_q) mod signed('0' &  ALU_y) when cmd.ALU2_op_type = ALU_remu  else
+                      signed('0' & RS1_q) mod signed('0' &  ALU_y) when cmd.ALU2_op_type = ALU_remu  else
                      (others => 'U');
 
     ALU2_res <= unsigned(ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
