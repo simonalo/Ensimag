@@ -386,10 +386,10 @@ begin
     );
 
     OP : CPU_OP
-        generic (
+        generic map (
             mutant      => mutant
         )
-        port (
+        port map (
             signe1      => cmd.ALU2_signe1,
             signe2      => cmd.ALU2_signe2,
             op_code     => cmd.ALU2_op_type,
