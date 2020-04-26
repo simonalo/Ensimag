@@ -26,6 +26,6 @@ begin
     if cmd.ALU2_res_select = Poids_forts then
         res <= resultat(63 downto 32);
     else
-        res <= resultat(31 dowtno 0);
+        res <= resultat(31 downto 0);
     end if;
 end architecture;
