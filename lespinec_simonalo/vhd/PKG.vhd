@@ -226,6 +226,7 @@ package PKG is
         mem_ce              : std_logic;
 
         cs                  : PO_cs_cmd;
+        op                  : PO_op_cmd;
     end record;
 
     -- Status
