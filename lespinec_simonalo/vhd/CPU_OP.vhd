@@ -19,22 +19,6 @@ entity CPU_OP is
 end entity;
 
 architecture RTL of CPU_OP is
-    signal rs1_signe, rs2_signe : signed(31 downto 0);
-    signal resulat : signed(63 downto 0);
-    constant zeros : signed(31 downto 0) := (others => '0');
 begin
-    rs1_signe <= rs1(31) & signed(rs1_signe) when signe1 = Signed1 else '0' & rs1_signe;
-    rs2_signe <= rs2(31) & signed(rs2_signe) when signe2 = Signed2 else '0' & rs2_signe;
-
-    if ALU2_op_type = ALU_mul then
-        resultat <= rs1_signe * rs2_signe;
-    end if;
-
-    if type_result = Poids_forts then
-        res <= resultat(63 downto 32);
-    else
-        res <= zeros;
-    end if;
-
     res <= zeros;
 end architecture;
