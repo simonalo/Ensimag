@@ -36,5 +36,5 @@ begin
         res <= zeros;
     end if;
 
-    res <= zeros;;
+    res <= zeros;
 end architecture;
