@@ -218,6 +218,8 @@ begin
                     PC_d <= PC_q + TO_PC_y;
                 when PC_from_mepc =>
                     PC_d <= MEPC_value;
+                when PC_from_alu2 =>
+                    PC_d <= ALU2_res
                 when others => null;
             end case;
         end if;
@@ -386,11 +388,17 @@ begin
     );
 
     OP : CPU_OP
-        port map (
+        generic (
+            mutant      => mutant
+        )
+        port (
+            signe1      => cmd.ALU2_signe1,
+            signe2      => cmd.ALU2_signe2,
+            op_code     => cmd.ALU2_op_type,
+            type_result => cmd.ALU2_result_type,
             rs1         => RS1_q,
             rs2         => ALU_y,
-            cmd         => cmd.op,
-            res         => ALU2_RES
+            res         => ALU2_res
     );
 
 end architecture;

@@ -610,8 +610,8 @@ begin
 			when S_MUL =>
 				cmd.op.ALU2_op <= ALU_mul;
 				cmd.op.ALU2_res_select <= Poids_faibles;
-				cmd.op.ALU2_signe1 <= signed1;
-				cmd.op.ALU2_signe2 <= signed2;
+				cmd.op.ALU2_signe1 <= Signed1;
+				cmd.op.ALU2_signe2 <= Signed2;
 
 				-- lecture mem[PC]
 				cmd.ADDR_sel <= ADDR_from_pc;

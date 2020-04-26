@@ -154,7 +154,7 @@ package PKG is
         UNDEFINED
     );
 
-    type ALU2_res_select is (
+    type ALU2_result_type is (
         Poids_forts,
         Poids_faibles,
         UNDEFINED
@@ -165,20 +165,12 @@ package PKG is
         Unsigned1,
         UNDEFINED
     );
+
     type ALU2_signe2 is (
         Signed2,
         Unsigned2,
         UNDEFINED
     );
-
-    -- Commandes vers l'UAL 2
-    type PO_op_cmd is record
-        ALU2_signe1         : ALU2_signe1;
-        ALU2_signe2         : ALU2_signe2;
-        ALU2_op             : ALU2_op_type;
-        ALU2_res_select     : ALU2_res_select;
-    end record;
-
 
     -- Commandes vers les csr
     type PO_cs_cmd is record
@@ -226,7 +218,6 @@ package PKG is
         mem_ce              : std_logic;
 
         cs                  : PO_cs_cmd;
-        op                  : PO_op_cmd;
     end record;
 
     -- Status
@@ -313,6 +304,7 @@ package PKG is
         generic (
             RESET_VECTOR     : waddr   := waddr_zero;
             INTERRUPT_VECTOR : waddr   := waddr_zero;
+            signe1      : in std_logic;
             mutant           : integer := 0
         );
         port (
@@ -441,8 +433,14 @@ package PKG is
     end component CPU_CND;
 
     component CPU_OP is
+        generic (
+            mutant           : integer := 0
+        );
         port (
-            cmd         : in  PO_op_cmd;
+            signe1      : in std_logic;
+            signe2      : in std_logic;
+            op_code     : in ALU2_op_type;
+            type_result : in ALU2_result_type;
             rs1         : in w32;
             rs2         : in w32;
             res         : out w32
