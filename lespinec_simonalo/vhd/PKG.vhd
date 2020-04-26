@@ -163,12 +163,12 @@ package PKG is
     type ALU2_signe1 is (
         Signed1,
         Unsigned1,
-        UNDEFINED,
+        UNDEFINED
     );
     type ALU2_signe2 is (
         Signed2,
         Unsigned2,
-        UNDEFINED,
+        UNDEFINED
     );
 
     -- Commandes vers l'UAL 2
