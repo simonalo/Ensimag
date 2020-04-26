@@ -18,11 +18,6 @@
     mulhsu x31, x2, x1
 
     #Test de soustraction de deux valeur maximale dans x31
-	li x1, 0x0F000000
-	li x2, 0x00000002
-    mulhsu x31, x2, x1
-
-    #Test de soustraction de deux valeur maximale dans x31
 	li x1, 0xC0000000
 	li x2, 0x00000002
     mulhsu x31, x1, x2
