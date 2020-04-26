@@ -287,7 +287,7 @@ begin
     ALU2_res_temp <= (signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
                (others => 'U');
 
-    ALU2_res <= ALU2_res_temp(31 downto 0) when cmd.ALU2_op_type = ALU_mul  else
+    ALU2_res <= unsigned(ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
                 (others => 'U');
 
     -- Sélection de l'opération effectuée par l'opérateur logique
