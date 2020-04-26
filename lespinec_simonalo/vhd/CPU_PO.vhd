@@ -285,9 +285,15 @@ begin
 
     -- Sélection de l'opération effectiée par l'UAL2
     ALU2_res_temp <= (signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mul  else
-               (others => 'U');
+                     (signed(RS1_q) * signed(ALU_y)) when cmd.ALU2_op_type = ALU_mulh  else
+                     (signed(RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
+                     (unsigned('0' & RS1_q) * unsigned('0' & ALU_y)) when cmd.ALU2_op_type = ALU_mulhsu  else
+                     (others => 'U');
 
     ALU2_res <= unsigned(ALU2_res_temp(31 downto 0)) when cmd.ALU2_op_type = ALU_mul  else
+    ALU2_res <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulh  else
+    ALU2_res <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhsu  else
+    ALU2_res <= unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhu  else
                 (others => 'U');
 
     -- Sélection de l'opération effectuée par l'opérateur logique

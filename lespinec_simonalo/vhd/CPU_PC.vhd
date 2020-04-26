@@ -72,7 +72,7 @@ architecture RTL of CPU_PC is
 		S_IR_SAVE,
 		S_MRET,
 		S_CSRR,
-		S_MUL
+		S_MUL_DIV_REM
 	);
 
 	signal state_d, state_q : State_type;
@@ -271,9 +271,7 @@ begin
 						-- Choix de l'état futur
 						-- Cas des multiplications, divisions et reste
 						if status.IR(31 downto 25) = "0000001" then
-							if status.IR(14 downto 12) = "000" then
-								state_d <= S_MUL;
-							end if;
+							tate_d <= S_MUL_DIV_REM;
 						else
 							if status.IR(14 downto 12) = "000" then
 								if status.IR(31 downto 25) = "0100000"then
@@ -604,9 +602,14 @@ begin
 				-- next state
 				state_d <= S_Fetch;
 
-			when S_MUL =>
+			when S_MUL_DIV_REM =>
 				cmd.ALU_Y_sel <= ALU_Y_rf_rs2;
-				cmd.ALU2_op_type <= ALU_mul;
+
+				if status.IR(14 downto 12)="000" then
+					cmd.ALU2_op_type <= ALU_mul;
+				elsif status.IR(14 downto 12)="001" then
+					cmd.ALU2_op_type <= ALU_mulh;
+				end if;
 				
 				cmd.DATA_sel <= DATA_from_alu2;
 				cmd.RF_we <= '1';

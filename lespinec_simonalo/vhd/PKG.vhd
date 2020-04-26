@@ -151,6 +151,13 @@ package PKG is
 
     type ALU2_op_type is (
         ALU_mul,
+        ALU_mulh,
+        ALU_mulhsu,
+        ALU_mulhu,
+        ALU_div,
+        ALU_divu,
+        ALU_rem,
+        ALU_remu,
         UNDEFINED
     );
 
