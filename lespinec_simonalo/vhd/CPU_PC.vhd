@@ -613,6 +613,10 @@ begin
 					cmd.ALU2_op_type <= ALU_mulhsu;
 				elsif status.IR(14 downto 12)="011" then
 					cmd.ALU2_op_type <= ALU_mulhu;
+				elsif status.IR(14 downto 12)="100" then
+					cmd.ALU2_op_type <= ALU_div;
+				elsif status.IR(14 downto 12)="101" then
+					cmd.ALU2_op_type <= ALU_sivu;
 				end if;
 				
 				cmd.DATA_sel <= DATA_from_alu2;

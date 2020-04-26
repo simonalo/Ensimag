@@ -294,6 +294,8 @@ begin
                 unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulh  else
                 unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhsu  else
                 unsigned(ALU2_res_temp(63 downto 32)) when cmd.ALU2_op_type = ALU_mulhu  else
+                unsigned(signed(RS1_q) / signed(ALU_y)) when cmd.ALU2_op_type = ALU_div  else
+                unsigned(signed('0' & RS1_q) / signed('0' ALU_y))(31 downto 0) when cmd.ALU2_op_type = ALU_div  else
                 (others => 'U');
 
     -- Sélection de l'opération effectuée par l'opérateur logique
