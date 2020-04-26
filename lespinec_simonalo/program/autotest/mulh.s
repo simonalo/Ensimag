@@ -19,7 +19,7 @@
 
     #Test de soustraction de deux valeur maximale dans x31
 	li x1, 0xF0000000
-	li x2, 0x20000000
+	li x2, 0x0000002
     mulh x31, x2, x1
 
 	#Test de soustraction de deux valeur maximale dans x31
