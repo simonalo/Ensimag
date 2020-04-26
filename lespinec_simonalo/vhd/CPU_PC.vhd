@@ -136,8 +136,8 @@ begin
 		cmd.cs.CSR_WRITE_mode    <= WRITE_mode_simple;
 
 		-- Deuxième ALU
-		cmd.ALU2_op		 	<= ALU_mul;
-		cmd.ALU2_res_select 	<= Poids_forts;
+		cmd.ALU2_op_type		 	<= ALU_mul;
+		cmd.ALU2_result_type 	<= Poids_forts;
 		cmd.ALU2_signe1 		<= Signed1;
 		cmd.ALU2_signe2 		<= Signed2;
 
@@ -608,8 +608,8 @@ begin
 				state_d <= S_Fetch;
 
 			when S_MUL =>
-				cmd.ALU2_op <= ALU_mul;
-				cmd.ALU2_res_select <= Poids_faibles;
+				cmd.ALU2_op_type <= ALU_mul;
+				cmd.ALU2_result_type <= Poids_faibles;
 				cmd.ALU2_signe1 <= Signed1;
 				cmd.ALU2_signe2 <= Signed2;
 
