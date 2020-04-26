@@ -136,7 +136,7 @@ begin
 		cmd.cs.CSR_WRITE_mode    <= WRITE_mode_simple;
 
 		-- Deuxième ALU
-		cmd.op.ALU2_op_type 	<= ALU_mul;
+		cmd.op.ALU2_op		 	<= ALU_mul;
 		cmd.op.ALU2_res_select 	<= Poids_forts;
 		cmd.op.ALU2_signe1 		<= Signed1;
 		cmd.op.ALU2_signe2 		<= Signed2;
@@ -303,7 +303,6 @@ begin
 								state_d <= S_SLTU;
 							end if;
 						end if;
-					when 011
 				    ---instructions type saut---
                     when "1101111" =>
                         state_d <= S_JAL;
@@ -608,7 +607,7 @@ begin
 				state_d <= S_Fetch;
 
 			when S_MUL =>
-				cmd.op.ALU2_op_type <= mul;
+				cmd.op.ALU2_op <= mul;
 				cmd.op.ALU2_res_select <= Poids_faibles;
 				cmd.op.ALU2_signe1 <= signed1;
 				cmd.op.ALU2_signe2 <= signed2;
