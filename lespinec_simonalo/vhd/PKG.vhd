@@ -309,7 +309,6 @@ package PKG is
         generic (
             RESET_VECTOR     : waddr   := waddr_zero;
             INTERRUPT_VECTOR : waddr   := waddr_zero;
-            signe1      : in std_logic;
             mutant           : integer := 0
         );
         port (
