@@ -20,7 +20,7 @@ begin
     rs2_signe <= rs2(31) & signed(rs2_signe) when cmd.ALU2_signe2 = Signed2 else '0' & rs2_signe;
 
     if cmd.ALU2_op_type = ALU_mul then
-        resultat <= rs1_signe * rs2_signe
+        resultat <= rs1_signe * rs2_signe;
     end if;
 
     if cmd.ALU2_res_select = Poids_forts then
