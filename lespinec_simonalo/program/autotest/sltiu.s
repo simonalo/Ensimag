@@ -7,7 +7,7 @@
     sltiu x31, x0, 0x000
 
 	# Comparaison de 0 et d'un immédiat maximum
-    sltiu x31, x0, 0x800
+    sltiu x31, x0, -2048
 
 	# max_cycle 500
 	# pout_start
