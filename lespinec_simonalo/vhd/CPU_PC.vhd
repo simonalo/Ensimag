@@ -136,7 +136,7 @@ begin
 		cmd.cs.CSR_WRITE_mode    <= WRITE_mode_simple;
 
 		-- Deuxième ALU
-		cmd.ALU2_op_type		 	<= ALU_mul;
+		cmd.ALU2_op_type		<= ALU_mul;
 		cmd.ALU2_result_type 	<= Poids_forts;
 		cmd.ALU2_signe1 		<= Signed1;
 		cmd.ALU2_signe2 		<= Signed2;
@@ -275,7 +275,7 @@ begin
 						-- Cas des multiplications, divisions et reste
 						if status.IR(31 downto 25) = "0000001" then
 							if status.IR(14 downto 12) = "000" then
-								state_d <= S_MUL;
+								state_d <= S_SUB;
 							end if;
 						else
 							if status.IR(14 downto 12) = "000" then
