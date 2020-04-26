@@ -68,6 +68,7 @@ package PKG is
         DATA_from_slt,
         DATA_from_shifter,
         DATA_from_csr,
+        DATA_from_alu2,
         UNDEFINED
     );
 
@@ -147,6 +148,36 @@ package PKG is
         CSR_mepc,
         UNDEFINED
     );
+
+    type ALU2_op_type is (
+        mul,
+        UNDEFINED
+    );
+
+    type ALU2_res_select is (
+        Poids_forts,
+        Poids_faibles,
+        UNDEFINED
+    );
+
+    type ALU2_signe1 is (
+        Signed1,
+        Unsigned1,
+        UNDEFINED,
+    );
+    type ALU2_signe2 is (
+        Signed2,
+        Unsigned2,
+        UNDEFINED,
+    );
+
+    -- Commandes vers l'UAL 2
+    type PO_op_cmd is record
+        ALU2_signe1         : ALU2_signe1;
+        ALU2_signe2         : ALU2_signe2;
+        ALU2_op             : ALU2_op_type;
+        ALU2_res_select     : ALU2_res_select;
+    end record;
 
 
     -- Commandes vers les csr
@@ -407,6 +438,15 @@ package PKG is
             jcond       : out std_logic
             );
     end component CPU_CND;
+
+    component CPU_OP is
+        port (
+            cmd         : in  PO_op_cmd;
+            rs1         : in w32;
+            rs2         : in w32;
+            res         : out w32
+            );
+    end component CPU_OP;
 
     -- Plateform Level Interrupt Controller
     component IP_PLIC

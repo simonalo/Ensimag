@@ -67,6 +67,8 @@ architecture RTL of CPU_PO is
 
     -- Signaux pour l'UAL
     signal ALU_y, ALU_res : w32;
+    -- Signal pour le deuxième UAL (multiplication, division, reste)
+    signal ALU2_res : w32;
     -- Signaux pour les opérations logiques
     signal LOGICAL_res : w32;
     -- Signaux pour le shifter
@@ -241,6 +243,8 @@ begin
                     RF_value <= SHIFTER_res;
                 when DATA_from_csr =>
                     RF_value <= CSR_value;
+                when DATA_from_alu2 =>
+                    RF_value <= ALU2_res;
                 when others => null;
             end case;
 
@@ -277,7 +281,6 @@ begin
     ALU_res <= RS1_q + ALU_y when cmd.ALU_op = ALU_plus  else
                RS1_q - ALU_y when cmd.ALU_op = ALU_minus else
                (others => 'U');
-
 
     -- Sélection de l'opération effectuée par l'opérateur logique
     LOGICAL_res <= RS1_q and ALU_y when cmd.LOGICAL_op = LOGICAL_and else
@@ -380,6 +383,14 @@ begin
             IR          => IR_q,
             SLT         => SLT,
             JCOND       => JMP
+    );
+
+    OP : CPU_OP
+        port map (
+            rs1         => RS1_q,
+            rs2         => ALU_y,
+            cmd         => cmd.op,
+            res         => ALU2_RES
     );
 
 end architecture;

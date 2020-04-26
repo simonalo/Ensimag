@@ -71,7 +71,8 @@ architecture RTL of CPU_PC is
 		S_Interrupt,
 		S_IR_SAVE,
 		S_MRET,
-		S_CSRR
+		S_CSRR,
+		S_MUL
 	);
 
 	signal state_d, state_q : State_type;
@@ -133,6 +134,10 @@ begin
 		cmd.cs.MSTATUS_mie_reset <= '0';
 
 		cmd.cs.CSR_WRITE_mode    <= WRITE_mode_simple;
+
+		-- Deuxième ALU
+		cmd.ALU2_op_type <= ALU_mul;
+		cmd.ALU2_op_signe <= SIGNED_both;
 
 		state_d <= state_q;
 
@@ -264,32 +269,39 @@ begin
 					    cmd.TO_PC_Y_sel <= TO_PC_Y_cst_x04;
 				    	cmd.PC_sel <= PC_from_pc;
 					    cmd.PC_we <= '1';
-					    -- Choix del'état futur
-					    if status.IR(14 downto 12) = "000" then
-						    if status.IR(31 downto 25) = "0100000"then
-							    state_d <= S_SUB;
-						    else
-							    state_d <= S_ADD;
-						    end if;
-					    elsif status.IR(14 downto 12) = "001" then
-							    state_d <= S_SLL;
-					    elsif status.IR(14 downto 12) = "101" then
-						    if status.IR(31 downto 25) = "0100000" then
-							    state_d <= S_SRA;
-						    else
-							    state_d <= S_SRL;
-						    end if;
-					    elsif status.IR(14 downto 12) = "111" then
-							    state_d <= S_AND;
-					    elsif status.IR(14 downto 12) = "110" then
-							    state_d <= S_OR;
-					    elsif status.IR(14 downto 12) = "100" then
-							    state_d <= S_XOR;
-					    elsif status.IR(14 downto 12) = "010" then
-						    state_d <= S_SLT;
-					    elsif status.IR(14 downto 12) = "011" then
-						    state_d <= S_SLTU;
-					    end if;
+						-- Choix de l'état futur
+						-- Cas des multiplications, divisions et reste
+						if status.IR(31 downto 25) = "0000001" then
+							if status.IR(14 downto 12) = "000" then
+								state_d <= S_MUL;
+						else
+							if status.IR(14 downto 12) = "000" then
+								if status.IR(31 downto 25) = "0100000"then
+									state_d <= S_SUB;
+								else
+									state_d <= S_ADD;
+								end if;
+							elsif status.IR(14 downto 12) = "001" then
+									state_d <= S_SLL;
+							elsif status.IR(14 downto 12) = "101" then
+								if status.IR(31 downto 25) = "0100000" then
+									state_d <= S_SRA;
+								else
+									state_d <= S_SRL;
+								end if;
+							elsif status.IR(14 downto 12) = "111" then
+									state_d <= S_AND;
+							elsif status.IR(14 downto 12) = "110" then
+									state_d <= S_OR;
+							elsif status.IR(14 downto 12) = "100" then
+									state_d <= S_XOR;
+							elsif status.IR(14 downto 12) = "010" then
+								state_d <= S_SLT;
+							elsif status.IR(14 downto 12) = "011" then
+								state_d <= S_SLTU;
+							end if;
+						end if;
+					when 011
 				    ---instructions type saut---
                     when "1101111" =>
                         state_d <= S_JAL;
@@ -308,7 +320,7 @@ begin
 							state_d <= S_CSRR;
 						end if;
                     when others =>
-					    state_d <= S_Error;
+						state_d <= S_Error;
 				    end case;
 
 
@@ -586,6 +598,19 @@ begin
 				cmd.ALU_Y_SEL <= ALU_Y_immI;
 				cmd.DATA_sel <= DATA_from_slt;
 				cmd.RF_we <= '1';
+				-- lecture mem[PC]
+				cmd.ADDR_sel <= ADDR_from_pc;
+				cmd.mem_ce <= '1';
+				cmd.mem_we <= '0';
+				-- next state
+				state_d <= S_Fetch;
+
+			when S_MUL =>
+				cmd.op.ALU2_op_type <= mul;
+				cmd.op.ALU2_res_select <= Poids_faibles;
+				cmd.op.ALU2_signe1 <= signed1;
+				cmd.op.ALU2_signe2 <= signed2;
+
 				-- lecture mem[PC]
 				cmd.ADDR_sel <= ADDR_from_pc;
 				cmd.mem_ce <= '1';

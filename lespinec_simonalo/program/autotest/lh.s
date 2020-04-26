@@ -21,5 +21,5 @@
     # pout_start
     # 00001000
     # 00005678
-    # FFFF8688
+    # FFFF8678
     # pout_end
