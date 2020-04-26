@@ -7,7 +7,7 @@
     #Test de soustraction de deux valeur nulle dans x31
 	li x1, 0 
 	li x2, 0 
-    sub x31, x31, x1
+    sub x31, x2, x1
 
 	#Test de soustraction de deux valeur maximale dans x31
 	li x1, 0x7fffffff 
