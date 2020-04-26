@@ -19,6 +19,7 @@ entity CPU_OP is
 end entity;
 
 architecture RTL of CPU_OP is
+    constant zeros : signed(31 downto 0) := (others => '0');
 begin
     res <= zeros;
 end architecture;
