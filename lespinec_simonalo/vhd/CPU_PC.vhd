@@ -276,6 +276,7 @@ begin
 						if status.IR(31 downto 25) = "0000001" then
 							if status.IR(14 downto 12) = "000" then
 								state_d <= S_MUL;
+							end if;
 						else
 							if status.IR(14 downto 12) = "000" then
 								if status.IR(31 downto 25) = "0100000"then
