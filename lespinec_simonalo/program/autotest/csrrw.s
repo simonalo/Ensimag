@@ -38,6 +38,6 @@ traitant:
 
 	# max_cycle 500
 	# pout_start
-	# 12345678 x
+	# 12345000 x
 	# 00000100
 	# pout_end
